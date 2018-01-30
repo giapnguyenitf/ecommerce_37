@@ -18,16 +18,16 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(50),
+        'remember_token' => str_random(config('setting.string_ten_character')),
         'is_admin' => false,
         'date_of_birth' => $faker->date,
         'address' => $faker->address,
-        'village_or_ward' => str_random(20),
-        'district_or_town' => str_random(20),
-        'province_or_city' => str_random(20),
+        'village_or_ward' => str_random(config('setting.string_ten_character')),
+        'district_or_town' => str_random(config('setting.string_ten_character')),
+        'province_or_city' => str_random(config('setting.string_ten_character')),
         'phone' => $faker->phoneNumber,
-        'gender' => $faker->randomElement($array = array(true, false)),
-        'avatar' => str_random(10),
-        'remember_token' => str_random(20),
+        'gender' => config('setting.male'),
+        'avatar' => str_random(config('setting.string_ten_character')),
+        'remember_token' => str_random(config('setting.string_ten_character')),
     ];
 });
