@@ -32,5 +32,18 @@
         'cart' => 'Cart',
         'home' => 'Home',
         'u_stora' => 'U-Stora',
+        'sign_in' => 'Sign In',
+        'register' => 'Register',
+        'email_address' => 'Email address',
+        'password' => 'Password',
+        'confirm_password' => 'Confirm password',
+        'name' => 'Name',
+        'sign_in_with' => 'Sign in with',
+        'facebook' => 'Facebook',
+        'google' => 'Google +',
+        'twitter' => 'Twitter',
+        'reset_password' => 'Reset password',
+        'forgot_password' => 'Forgot password',
+        'send_password_link' => 'Send password link',
     ];
 ?>
