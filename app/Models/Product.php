@@ -25,9 +25,9 @@ class Product extends Model
         return $this->hasMany(Rating::class);
     }
 
-    public function color_product()
+    public function colors()
     {
-        return $this->hasMany(ColorProduct::class);
+        return $this->belongsToMany(Color::class)->as('colorProducts')->withTimestamps()->withPivot('id', 'number');
     }
 
     public function category()
@@ -38,5 +38,10 @@ class Product extends Model
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function colorProducts()
+    {
+        return $this->hasMany(ColorProduct::class);
     }
 }
