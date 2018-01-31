@@ -11,8 +11,8 @@ class Image extends Model
         'file_name',
     ];
     
-    public function color_product()
+    public function colorProduct()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(ColorProduct::class);
     }
 }
