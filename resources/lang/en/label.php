@@ -45,5 +45,6 @@
         'reset_password' => 'Reset password',
         'forgot_password' => 'Forgot password',
         'send_password_link' => 'Send password link',
+        'logout' => 'Logout',
     ];
 ?>
