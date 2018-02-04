@@ -103,6 +103,11 @@
                             <i class="fa fa-shopping-cart"></i>
                             <span class="product-count">#</span>
                         </a>
+                        <a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> @lang('label.logout')
+                        </a>
+                        {{ Form::open(['route' => 'logout', 'method' => 'POST', 'id' => 'logout-form']) }}
+                        {{ Form::close() }}
                     </div>
                 </div>
             </div>
