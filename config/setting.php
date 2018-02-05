@@ -15,5 +15,7 @@
         'paginate' => 10,
         'is_male' => 1,
         'is_female' => 0,
+        'no_product_sold' => 0,
+        'perPage' => 5,
     ];
 ?>

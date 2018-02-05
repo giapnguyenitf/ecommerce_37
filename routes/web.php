@@ -33,3 +33,11 @@ Route::prefix('user')->group(function () {
         'update',
     ]]);
 });
+
+Route::prefix('admin')->group(function () {
+    Route::resource('manage-product', 'Admin\ProductController', ['only' => [
+        'index',
+        'destroy',
+        'edit',
+    ]]);
+});
