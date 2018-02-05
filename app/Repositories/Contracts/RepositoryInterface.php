@@ -3,7 +3,7 @@ namespace App\Repositories\Contracts;
 
 interface RepositoryInterface
 {
-    public function all();
+    public function all($columns = ['*']);
 
     public function find($id, $column = ['*']);
 
@@ -16,8 +16,6 @@ interface RepositoryInterface
     public function delete($id);
 
     public function findByField($field, $value);
-
-    public function first();
 
     public function get($columns = ['*']);
 }

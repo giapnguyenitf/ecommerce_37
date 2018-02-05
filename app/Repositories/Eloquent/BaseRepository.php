@@ -30,12 +30,12 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->model = $model;
     }
 
-    public function all()
+    public function all($columns = ['*'])
     {
-        return $this->model->all();
+        return $this->model->all($columns);
     }
 
-    public function find($id, $column = ['*'])
+    public function find($id, $columns = ['*'])
     {
         return $this->model->find($id);
     }
@@ -61,7 +61,7 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function delete($id)
     {
-        return $this->model->destroy($id);
+        return $this->model-$columns = ['*']>destroy($id);
     }
 
     public function findByField($field, $value)

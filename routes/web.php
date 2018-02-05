@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
 
 Auth::routes();
@@ -21,3 +21,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('auth/{social}', 'Auth\SocialAuthController@redirectToProvider')->name('socialAuth');
 Route::get('auth/{social}/callback', 'Auth\SocialAuthController@handleProviderCallback');
+
+Route::prefix('user')->group(function () {
+    Route::resource('profile', 'User\UserController', ['only' => [
+        'index',
+        'update',
+    ]]);
+
+    Route::resource('password', 'User\PasswordController', ['only' => [
+        'index',
+        'update',
+    ]]);
+});
