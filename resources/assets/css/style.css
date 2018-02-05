@@ -1436,3 +1436,35 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
 .pagination>li>span {
     color: #5a88ca;
 }
+.search-form {
+    margin-top: 60px;
+}
+
+.profile-section {
+    margin-top: 20px;
+}
+
+.panel-body ul li {
+    list-style-type: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.fa {
+    width: 20px;
+}
+
+.panel-body ul {
+    padding-left: 0px;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.form-update-password {
+    margin-bottom: 20px;
+}
+
+.help-block strong {
+    color: #e71616;
+}

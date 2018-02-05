@@ -13,5 +13,7 @@
         'done' => 2,
         'cancel' => 3,
         'paginate' => 10,
+        'is_male' => 1,
+        'is_female' => 0,
     ];
 ?>

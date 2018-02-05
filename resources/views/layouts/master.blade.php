@@ -23,21 +23,41 @@
                     <div class="user-menu">
                         <ul>
                             <li>
-                                <a href="#">
-                                    <i class="fa fa-user"></i> @lang('label.my_account')</a>
-                            </li>
-                            <li>
-                                <a href="cart.html">
+                                <a href="">
                                     <i class="fa fa-user"></i> @lang('label.my_cart')</a>
                             </li>
                             <li>
-                                <a href="checkout.html">
+                                <a href="">
                                     <i class="fa fa-user"></i> @lang('label.checkout')</a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-user"></i> @lang('label.login')</a>
-                            </li>
+                            @guest
+                                <li>
+                                    <a href="{{ route('login') }}">
+                                        <i class="fa fa-user"></i> @lang('label.login')</a>
+                                </li>
+                            @else
+                                <li>
+                                    <div class="dropdown">
+                                        <a class="dropdown dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @lang('label.my_account')&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">
+                                                <a href="{{ route('profile.index') }}"><i class="fa fa-user"></i> @lang('label.manage_account')</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href=""><i class="fa fa-shopping-bag"></i> @lang('label.my_orders')</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href=""><i class="fa fa-star"></i> @lang('label.my_ratings')</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> @lang('label.logout')</a>
+                                                {{ Form::open(['route' => 'logout', 'method' => 'POST', 'id' => 'logout-form']) }}
+                                                {{ Form::close() }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            @endguest
                         </ul>
                     </div>
                 </div>
@@ -86,28 +106,37 @@
     <div class="site-branding-area">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="logo">
-                        <h1>
-                            <a href="#">
-                                <img src="{{ URL::asset('images/logo.png') }}">
-                            </a>
-                        </h1>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <h1>
+                                    <a href="{{ route('home') }}">
+                                        <img src="{{ URL::asset('images/logo.png') }}">
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="search-form">
+                                <div class="input-group">
+                                    <input class="form-control" type="text" name="" id="">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="shopping-item">
                         <a href="">@lang('label.cart') -
                             <span class="cart-amunt">#</span>
                             <i class="fa fa-shopping-cart"></i>
                             <span class="product-count">#</span>
                         </a>
-                        <a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i> @lang('label.logout')
-                        </a>
-                        {{ Form::open(['route' => 'logout', 'method' => 'POST', 'id' => 'logout-form']) }}
-                        {{ Form::close() }}
                     </div>
                 </div>
             </div>
@@ -129,7 +158,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="">@lang('label.home')</a>
+                            <a href="{{ route('home') }}">@lang('label.home')</a>
                         </li>
                         <li>
                             <a href="#">@lang('label.categories')</a>
