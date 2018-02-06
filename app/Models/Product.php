@@ -44,4 +44,9 @@ class Product extends Model
     {
         return $this->hasMany(ColorProduct::class);
     }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }

@@ -116,10 +116,7 @@
                                     <ul class="nav">
                                         <li><a href="{{ route('manage-product.index') }}" class="">@lang('label.list_products')</a></li>
                                         <li>
-                                            <a href="" class="">@lang('label.add_products')</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class=""></a>
+                                            <a href="{{ route('add-product.index') }}" class="">@lang('label.add_products')</a>
                                         </li>
                                     </ul>
                                 </div>

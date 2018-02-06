@@ -17,4 +17,3 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         return $this->model->orderBy('discount', 'desc')->take($number)->get();
     }
 }
-?>

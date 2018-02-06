@@ -20,5 +20,6 @@ interface RepositoryInterface
     public function get($columns = ['*']);
 
     public function with($relations);
+
+    public function where($column, $operator, $condition);
 }
-?>

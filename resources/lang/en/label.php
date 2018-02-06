@@ -101,5 +101,15 @@
         'edit' => 'Edit',
         'delete' => 'Delete',
         'copyright' => '2017. All Rights Reserved.',
+        'description' => 'Descriptions',
+        'add_product' => 'Add product',
+        'price' => 'Price',
+        'discount' => 'Discount',
+        'category' => 'Category',
+        'add_one_products' => 'Add one product',
+        'add_multi_products' => 'Add multi products',
+        'brand' => 'Branch',
+        'choose_file' => 'Import products use Excel or CSV file',
+        'import' => 'Start import',
     ];
 ?>
