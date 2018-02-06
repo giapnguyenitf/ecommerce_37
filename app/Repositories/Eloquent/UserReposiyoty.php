@@ -21,7 +21,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     {
         $user = $this->model->find($id);
         $user->password_hash = $password;
-        
+
         return $user->save();
     }
 }

@@ -17,5 +17,7 @@
         'is_female' => 0,
         'no_product_sold' => 0,
         'perPage' => 5,
+        'get_top_product_discount' => 4,
+        'folder_thumbnails' => 'public/thumbnails',
     ];
 ?>

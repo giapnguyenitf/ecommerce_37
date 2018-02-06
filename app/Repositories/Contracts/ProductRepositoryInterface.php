@@ -5,5 +5,5 @@ use App\Repositories\Contracts\RepositoryInterface;
 
 interface ProductRepositoryInterface extends RepositoryInterface
 {
-    
+    public function getHotProducts($number);
 }

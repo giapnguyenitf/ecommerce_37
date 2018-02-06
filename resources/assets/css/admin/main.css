@@ -1766,3 +1766,36 @@ ul.activity-timeline > li {
 .admin-logo {
   margin-top: -40px;
 }
+.help-block strong {
+  font-weight: 400;
+  color: #f82c2c;
+}
+.bg-color {
+  height: 10px;
+  width: 10px;
+}
+
+article
+{
+    width: 80%;
+    margin:auto;
+    margin-top:10px;
+}
+
+
+.thumbnail{
+
+    height: 100px;
+    margin: 10px; 
+    float: left;
+}
+#clear{
+   display:none;
+}
+#result {
+    border: 4px dotted #cccccc;
+    display: none;
+    float: right;
+    margin:0 auto;
+    width: 511px;
+}
