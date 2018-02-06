@@ -18,5 +18,7 @@ interface RepositoryInterface
     public function findByField($field, $value);
 
     public function get($columns = ['*']);
+
+    public function with($relations);
 }
 ?>

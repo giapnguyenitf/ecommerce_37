@@ -42,8 +42,8 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function paginate($limit = null, $columns = ['*'])
     {
-        $limit = $limit ? config('setting.paginate') : $limit;
-        $model = $this->model->paginate($limit, $columns);
+        $perPage = $limit ? $limit : config('setting.paginate');
+        $model = $this->model->paginate($perPage, $columns);
         $this->makeModel();
 
         return $model;
@@ -77,6 +77,13 @@ abstract class BaseRepository implements RepositoryInterface
         $this->makeModel();
 
         return $model; 
+    }
+
+    public function with($relations)
+    {
+        $this->model = $this->model->with($relations);
+
+        return $this;
     }
 }
 ?>
