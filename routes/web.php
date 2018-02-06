@@ -50,6 +50,10 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 });
 
 Route::namespace('Admin')->group(function () {
+<<<<<<< a417dfdf18015572be0cda38e732b6583f930e96
     Route::get('get/categories', 'CategoryController@getCategories')->name('getCategories');
+=======
+    Route::get('get/categories', 'CategoryController@getCategories');
+>>>>>>> + upload one products
     Route::resource('category', 'CategoryController');
 });

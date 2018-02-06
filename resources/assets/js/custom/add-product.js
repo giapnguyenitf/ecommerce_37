@@ -12,7 +12,6 @@ $(document).ready(() => {
                     .text(el.name));
                 });
             }
-
         });
     });
 
@@ -29,7 +28,6 @@ $(document).ready(() => {
                         .text(el.name));
                     });
                 }
-
             });
         });
     });
