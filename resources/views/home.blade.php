@@ -58,3 +58,4 @@
     </div>
     <!-- End promo area -->
 @endsection
+<div>

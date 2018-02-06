@@ -1,9 +1,9 @@
 <?php
 namespace App\Repositories\Eloquent;
 
+use App\Models\Product;
 use App\Repositories\Eloquent\BaseRepository;
 use App\Repositories\Contracts\ProductRepositoryInterface;
-use App\Models\Product;
 
 class ProductRepository extends BaseRepository implements ProductRepositoryInterface
 {
@@ -14,6 +14,6 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
     public function getHotProducts($number)
     {
-        return $this->model->orderBy('discount', 'desc')->take($number)->get();
+        return $this->orderBy('discount', 'desc')->take($number)->get();
     }
 }

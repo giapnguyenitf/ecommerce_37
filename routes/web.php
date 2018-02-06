@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return redirect()->route('home');
 });
@@ -34,12 +33,23 @@ Route::prefix('user')->group(function () {
     ]]);
 });
 
-Route::prefix('admin')->group(function () {
-    Route::resource('manage-product', 'Admin\ProductController', ['only' => [
+Route::prefix('admin')->namespace('Admin')->group(function () {
+    Route::resource('manage-product', 'ProductController', ['only' => [
         'index',
         'destroy',
         'edit',
+        'store'
     ]]);
 
-    Route::get('add-product', 'Admin\AddProductsController@index')->name('add-product.index');
+    Route::resource('update-detail', 'ImagesController', [ 'only' => [
+        'show',
+        'store',
+    ]]);
+
+    Route::get('add-product', 'AddProductsController@index')->name('add-product.index');
+});
+
+Route::namespace('Admin')->group(function () {
+    Route::get('get/categories', 'CategoryController@getCategories')->name('getCategories');
+    Route::resource('category', 'CategoryController');
 });

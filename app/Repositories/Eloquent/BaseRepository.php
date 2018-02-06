@@ -26,7 +26,7 @@ abstract class BaseRepository implements RepositoryInterface
         if (!$model instanceof Model) {
             throw new Exception('Class ' . $this->model() . ' must be an instance of Illuminate\Database\Eloquent\Model');
         }
-        
+
         return $this->model = $model;
     }
 
@@ -35,9 +35,9 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->model->all($columns);
     }
 
-    public function find($id, $columns = ['*'])
+    public function findOrFail($id, $columns = ['*'])
     {
-        return $this->model->find($id);
+        return $this->model->findOrFail($id);
     }
 
     public function paginate($limit = null, $columns = ['*'])
@@ -70,13 +70,13 @@ abstract class BaseRepository implements RepositoryInterface
 
         return $model;
     }
-    
+
     public function get($columns = ['*'])
     {
         $model = $this->model->get($columns);
         $this->makeModel();
 
-        return $model; 
+        return $model;
     }
 
     public function with($relations)
@@ -91,5 +91,45 @@ abstract class BaseRepository implements RepositoryInterface
         $this->model = $this->model->where($column, $operator, $condition);
 
         return $this;
+    }
+
+    public function orderBy($column, $sortBy)
+    {
+        $this->model = $this->model->orderBy($column, $sortBy);
+
+        return $this;
+    }
+
+    public function count()
+    {
+        return $this->model->count();
+    }
+
+    public function take($number)
+    {
+        $this->model = $this->model->take($number);
+
+        return $this;
+    }
+
+    public function createMany($array)
+    {
+        return $this->model->createMany($array);
+    }
+
+    public function createByRelationship($method, $inputs, $option = false)
+    {
+        $inputs = is_array($inputs) ? $inputs : [$inputs];
+        if (!empty($inputs['model'])) {
+            $this->model = $inputs['model'];
+            $inputs = array_except($inputs, ['model']);
+        }
+        if (empty($inputs['attribute'])) {
+            throw new Exception('No input field to create model');
+        }
+        $this->__call($method, []);
+        return !$option
+            ? $this->model->create($inputs['attribute'])
+            : $this->model->createMany($inputs['attribute']);
     }
 }
