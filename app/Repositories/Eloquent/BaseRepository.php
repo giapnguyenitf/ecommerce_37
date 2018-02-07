@@ -85,5 +85,11 @@ abstract class BaseRepository implements RepositoryInterface
 
         return $this;
     }
+
+    public function where($column, $operator, $condition)
+    {
+        $this->model = $this->model->where($column, $operator, $condition);
+
+        return $this;
+    }
 }
-?>

@@ -7,4 +7,3 @@ interface ProductRepositoryInterface extends RepositoryInterface
 {
     
 }
-?>

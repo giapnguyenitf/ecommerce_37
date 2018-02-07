@@ -40,4 +40,6 @@ Route::prefix('admin')->group(function () {
         'destroy',
         'edit',
     ]]);
+
+    Route::get('add-product', 'Admin\AddProductsController@index')->name('add-product.index');
 });
