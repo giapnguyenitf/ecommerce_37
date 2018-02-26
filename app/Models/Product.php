@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Storage;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -49,5 +50,15 @@ class Product extends Model
     public function brand()
     {
         return $this->belongsTo(Brand::class);
+    }
+
+    public function getThumbnailPathAttribute()
+    {
+        return Storage::url(config('setting.thumbnails_path') . $this->thumbnail);
+    }
+
+    public function getLastPriceAttribute()
+    {
+        return $this->price - $this->price * $this->discount;
     }
 }

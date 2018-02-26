@@ -16,4 +16,19 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     {
         return $this->orderBy('discount', 'desc')->take($number)->get();
     }
+
+    public function getTopSeller($number)
+    {
+        return $this->with('colorProducts')->get()->sortByDesc('colorProducts.sold')->take($number);
+    }
+
+    public function getTopNew($number)
+    {
+        return $this->orderBy('created_at', 'desc')->take($number)->get();
+    }
+
+    public function getDetailProduct($id)
+    {
+        return $this->where('id', '=', $id)->with('colorProducts')->get()->first();
+    }
 }

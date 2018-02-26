@@ -20,4 +20,9 @@ class ColorProductRepository extends BaseRepository implements ColorProductRepos
             ->count();
     }
 
+    public function getDetailColorProduct($id)
+    {
+        return $this->where('id', '=', $id)->with('images')->get()->first();
+    }
+
 }

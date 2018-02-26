@@ -26,7 +26,7 @@ class UploadProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100',
-            'description' => 'required|string|max:500',
+            'description' => 'required|string',
             'price' => 'required|numeric|min:1000',
             'discount' => 'required|numeric|min:0|max:99',
             'thumbnail' => 'required|max:2048|mimes:img,png,jpeg',

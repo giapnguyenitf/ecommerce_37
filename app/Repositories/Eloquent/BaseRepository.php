@@ -117,6 +117,24 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->model->createMany($array);
     }
 
+    public function __call($method, $args)
+    {
+        $model = $this->model;
+        if ($method == head($args)) {
+            $this->model = call_user_func_array([$model, $method], array_diff($args, [head($args)]));
+            return $this;
+        }
+        if (!$model instanceof Model) {
+            $model = $model->first();
+            if (!$model) {
+                throw new ModelNotFoundException();
+            }
+        }
+        $this->model = call_user_func_array([$model, $method], $args);
+
+        return $this;
+    }
+
     public function createByRelationship($method, $inputs, $option = false)
     {
         $inputs = is_array($inputs) ? $inputs : [$inputs];

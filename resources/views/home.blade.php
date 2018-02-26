@@ -57,5 +57,158 @@
         </div>
     </div>
     <!-- End promo area -->
+    <div class="maincontent-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="latest-product">
+                        <h2 class="section-title">@lang('label.lastest_product')</h2>
+                        <div class="product-carousel">
+                            @foreach ($hotProducts as $hotProduct)
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                        <img src="{{ $hotProduct->thumbnail_path }}" alt="">
+                                        <div class="product-hover">
+                                            <a href="#" class="add-to-cart-link">
+                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                            <a href="{{ route('detailProduct', $hotProduct->id) }}" class="view-details-link">
+                                                <i class="fa fa-link"></i> See details</a>
+                                        </div>
+                                    </div>
+                                    <h2>
+                                        <a href="{{ route('detailProduct', $hotProduct->id) }}">{{ $hotProduct->name }}</a>
+                                    </h2>
+                                    <div class="product-carousel-price">
+                                        @if ($hotProduct->discount)
+                                            <ins>{{ $hotProduct->last_price }}</ins>
+                                            <del>{{ $hotProduct->price }}</del>
+                                        @else
+                                            <ins>{{ $hotProduct->price }}</ins>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="brands-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="brand-wrapper">
+                        <div class="brand-list">
+                            <img src="{{ asset('images/brand1.png') }}" alt="">
+                            <img src="{{ asset('images/brand2.png') }}" alt="">
+                            <img src="{{ asset('images/brand3.png') }}" alt="">
+                            <img src="{{ asset('images/brand4.png') }}" alt="">
+                            <img src="{{ asset('images/brand5.png') }}" alt="">
+                            <img src="{{ asset('images/brand6.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-widget-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">@lang('label.top_seller')</h2>
+                        <a href="" class="wid-view-more">@lang('label.view_all')</a>
+                        @foreach ($topSellerProducts as $topSellerProduct)
+                            <div class="single-wid-product">
+                                <a href="{{ route('detailProduct', $topSellerProduct->id) }}">
+                                    <img src="{{ $topSellerProduct->thumbnail_path }}" alt="" class="product-thumb">
+                                </a>
+                                <h2>
+                                    <a href="{{ route('detailProduct', $topSellerProduct->id) }}">{{ $topSellerProduct->name }}</a>
+                                </h2>
+                                <div class="product-wid-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product-wid-price">
+                                    @if ($topSellerProduct->discount)
+                                        <ins>{{ $topSellerProduct->last_price}}</ins>
+                                        <del>{{ $topSellerProduct->price }}</del>
+                                    @else
+                                        <ins>{{ $topSellerProduct->price }}</ins>
+                                    @endif
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">@lang('label.recently_viewed')</h2>
+                        <a href="#" class="wid-view-more">@lang('label.view_all')</a>
+                        <div class="single-wid-product">
+                            <a href="">
+                                <img src="" alt="" class="product-thumb">
+                            </a>
+                            <h2>
+                                <a href="single-product.html"></a>
+                            </h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-wid-price">
+                                <ins></ins>
+                                <del></del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">@lang('label.top_new')</h2>
+                        <a href="#" class="wid-view-more">@lang('label.view_all')</a>
+                        @foreach ($topNewProducts as $topNewProduct)
+                            <div class="single-wid-product">
+                                <a href="{{ route('detailProduct', $topNewProduct->id) }}">
+                                    <img src="{{ $topNewProduct->thumbnail_path }}" alt="" class="product-thumb">
+                                </a>
+                                <h2>
+                                    <a href="{{ route('detailProduct', $topNewProduct->id) }}">{{ $topNewProduct->name }}</a>
+                                </h2>
+                                <div class="product-wid-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product-wid-price">
+                                    @if ($topNewProduct->discount)
+                                        <ins>{{ $topNewProduct->last_price }}</ins>
+                                        <del>{{ $topNewProduct->price }}</del>
+                                    @else
+                                        <ins>{{ $topNewProduct->price }}</ins>
+                                    @endif
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End product widget area -->
 @endsection
-<div>
+@section('javascript')
+@endsection

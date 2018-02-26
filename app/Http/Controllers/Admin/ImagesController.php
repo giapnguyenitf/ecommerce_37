@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Session;
-use Exception;
+// use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UploadImagesRequest;
@@ -80,7 +80,7 @@ class ImagesController extends Controller
                 $thumbnail['file_name'] = explode('/', $file_path)[2];
                 array_push($array, $thumbnail);
             }
-            $this->colorProductRepository->createByRelationship('images', ['model' => $colorProduct, 'attributes' => $array]);
+            $this->colorProductRepository->createByRelationship('images', ['model' => $colorProduct, 'attribute' => $array], true);
             Session::flash('add_color_product_success', trans('label.add_color_product_success'));
        } catch(Exception $e) {
             Session::flash('add_color_product_fail', trans('label.add_color_product_fail'));
