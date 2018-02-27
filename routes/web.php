@@ -56,3 +56,6 @@ Route::namespace('Admin')->group(function () {
 
 Route::get('detail-product/{id}', 'DetailProductController@show')->name('detailProduct');
 Route::get('get/detail-color-product/{id}', 'DetailProductController@getDetailColorProduct')->name('getDetailColorProduct');
+Route::get('cart', function() {
+    return view('cart');
+});

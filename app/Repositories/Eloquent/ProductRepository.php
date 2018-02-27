@@ -31,4 +31,9 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     {
         return $this->where('id', '=', $id)->with('colorProducts')->get()->first();
     }
+
+    public function getRecentlyViewedProducts($array)
+    {
+        return $this->whereIn('id', $array)->get();
+    }
 }

@@ -136,5 +136,12 @@
         'your_review' => 'Your review',
         'submit' => 'Submit',
         'color' => 'Color',
+        'shopping-cart' => 'Shopping cart',
+        'item' => 'Item',
+        'quantity' => 'Quantity',
+        'total' => 'Total',
+        'order' => 'Order',
+        'see_detail' => 'See detail',
+        'recently_viewed' => 'Recently viewed',
     ];
 ?>

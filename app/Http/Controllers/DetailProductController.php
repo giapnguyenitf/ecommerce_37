@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use Response;
 use Illuminate\Http\Request;
 use App\Repositories\Contracts\ProductRepositoryInterface;
@@ -24,8 +25,18 @@ class DetailProductController extends Controller
     public function show($id)
     {
         $product = $this->productRepository->getDetailProduct($id);
+        if (Session::has('recently_viewed')) {
+            $ids_viewed = Session::get('recently_viewed');
+            if (!in_array($id, $ids_viewed)) {
+                Session::push('recently_viewed', $id);
+            }
+        } else {
+            Session::push('recently_viewed', $id);
+        }
+        $ids_viewed = Session::get('recently_viewed');
+        $recently_viewed_products = $this->productRepository->getRecentlyViewedProducts($ids_viewed);
 
-        return view('detailProduct', compact('product'));
+        return view('detailProduct', compact('product', 'recently_viewed_products'));
     }
 
     public function getDetailColorProduct($colorProductId)

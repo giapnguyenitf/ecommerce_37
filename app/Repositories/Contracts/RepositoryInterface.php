@@ -33,4 +33,6 @@ interface RepositoryInterface
 
     public function createByRelationship($method, $inputs, $option = false);
 
+    public function whereIn($olumn, $values);
+
 }

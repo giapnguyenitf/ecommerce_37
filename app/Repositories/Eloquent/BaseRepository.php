@@ -150,4 +150,12 @@ abstract class BaseRepository implements RepositoryInterface
             ? $this->model->create($inputs['attribute'])
             : $this->model->createMany($inputs['attribute']);
     }
+
+    public function whereIn($column, $values)
+    {
+        $values = is_array($values) ? $values : [$values];
+        $this->model = $this->model->whereIn($column, $values);
+        
+        return $this;
+    }
 }

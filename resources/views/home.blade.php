@@ -71,9 +71,9 @@
                                         <img src="{{ $hotProduct->thumbnail_path }}" alt="">
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link">
-                                                <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                <i class="fa fa-shopping-cart"></i>@lang('label.add_to_cart')</a>
                                             <a href="{{ route('detailProduct', $hotProduct->id) }}" class="view-details-link">
-                                                <i class="fa fa-link"></i> See details</a>
+                                                <i class="fa fa-link"></i>@lang('label.see_detail')</a>
                                         </div>
                                     </div>
                                     <h2>
@@ -153,25 +153,32 @@
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">@lang('label.recently_viewed')</h2>
                         <a href="#" class="wid-view-more">@lang('label.view_all')</a>
-                        <div class="single-wid-product">
-                            <a href="">
-                                <img src="" alt="" class="product-thumb">
-                            </a>
-                            <h2>
-                                <a href="single-product.html"></a>
-                            </h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                        @foreach ($recently_viewed_products as $recently_viewed_product)
+                            <div class="single-wid-product">
+                                <a href="{{ route('detailProduct', $recently_viewed_product->id) }}">
+                                    <img src="{{ $recently_viewed_product->thumbnail_path }}" alt="" class="product-thumb">
+                                </a>
+                                <h2>
+                                    <a href="{{ route('detailProduct', $recently_viewed_product->id) }}">{{ $recently_viewed_product->name }}</a>
+                                </h2>
+                                <div class="product-wid-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="product-wid-price">
+                                    @if ($recently_viewed_product->discount)
+                                        <ins>{{ $recently_viewed_product->last_price }}</ins>
+                                        <del>{{ $recently_viewed_product->price }}</del>
+                                    @else
+                                        <ins>{{ $recently_viewed_product->price }}</ins>
+                                    @endif
+                                </div>
                             </div>
-                            <div class="product-wid-price">
-                                <ins></ins>
-                                <del></del>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
                 <div class="col-md-4">
