@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>Shop</h2>
+                        <h2>@lang('label.shop')</h2>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,8 @@
 
             <div class="col-sm-6">
                 <div class="product-inner">
-                    <h2 class="product-name">{{ $product->name }}</h2>
+                    <input type="hidden" id="product_id" name="product_id" value="{{ $product->id }}">
+                    <h2 class="product-name" >{{ $product->name }}</h2>
                     <div class="product-inner-price">
                         @if ($product->discount)
                             <ins>{{ $product->last_price}}</ins>
@@ -50,8 +51,8 @@
                     </div>
                     {{ Form::open(['route' => 'login', 'class' => 'cart']) }}
                         <div class="quantity">
-                            {{ Form::number('quantity', 1, ['class' => 'input-text qty text', 'min' => 1, 'step' => 1]) }}
-                            {{ Form::button(trans('label.add_to_cart'), ['type' => 'submit', 'class' => 'add_to_cart_button']) }}
+                            {{ Form::number('quantity', 1, ['id' => 'quantity', 'class' => 'input-text qty text', 'min' => 1, 'step' => 1]) }}
+                            {{ Form::button(trans('label.add_to_cart'), ['type' => 'button', 'class' => 'add_to_cart_button', 'id' => 'add_to_cart_button', 'data-url' => route('cart.add')]) }}
                         </div>
                     {{ Form::close() }}
                     <br>
@@ -61,7 +62,7 @@
                         <p>@lang('label.category'): <a href="">{{ $product->category->name }}</a></p>
                         <p>@lang('label.color'):
                             @foreach ($product->colorProducts as $colorProduct)
-                                <label class="radio-inline"><input data-url="{{ route('getDetailColorProduct', $colorProduct->id) }}" class="color-option" type="radio" name="color" value="{{ $colorProduct->id }}">{{ $colorProduct->color->name }}</label>
+                                <label class="radio-inline"><input data-url="{{ route('getDetailColorProduct', $colorProduct->id) }}" data-color="{{ $colorProduct->color_id }}" class="color-option" type="radio" name="color" value="{{ $colorProduct->id }}">{{ $colorProduct->color->name }}</label>
                             @endforeach
                         </p>
                     </div>
@@ -132,12 +133,42 @@
                     @endforeach
                 </div>
             </div>
-
         </div>
+    </div>
+
+    <div id="modalSuccess" class="modal fade" role="dialog">
+      <div class="modal-dialog ">
+        <div class="modal-content alert alert-success">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">@lang('label.notification')</h4>
+          </div>
+          <div class="modal-body">
+            <p>@lang('label.add_cart_success')</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalError" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content  alert alert-danger">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">@lang('label.notification')</h4>
+          </div>
+          <div class="modal-body">
+            <p class="message_err">@lang('label.add_cart_fail')</p>
+          </div>
+        </div>
+
+      </div>
     </div>
 @endsection
 @section('javascript')
     {{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js') }}
     {{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js') }}
+    {{ Html::script('http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
+    {{ Html::script('js/custom/ajax-setup.js') }}
     {{ Html::script('js/custom/detail-product.js') }}
 @endsection

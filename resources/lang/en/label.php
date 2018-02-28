@@ -143,5 +143,10 @@
         'order' => 'Order',
         'see_detail' => 'See detail',
         'recently_viewed' => 'Recently viewed',
+        'shop' => 'Shop',
+        'vnd' => 'VND',
+        'add_cart_success' => 'Add cart success !',
+        'add_cart_fail' => 'Add cart fail !',
+        'notification' => 'Notification',
     ];
 ?>

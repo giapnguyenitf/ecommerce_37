@@ -56,6 +56,12 @@ Route::namespace('Admin')->group(function () {
 
 Route::get('detail-product/{id}', 'DetailProductController@show')->name('detailProduct');
 Route::get('get/detail-color-product/{id}', 'DetailProductController@getDetailColorProduct')->name('getDetailColorProduct');
-Route::get('cart', function() {
-    return view('cart');
+Route::prefix('cart')->group(function () {
+    Route::get('/', 'ShoppingCartController@show')->name('cart.show');
+    Route::post('add', 'ShoppingCartController@addCart')->name('cart.add');
+    Route::post('remove', 'ShoppingCartController@removeCart')->name('cart.remove');
+    Route::post('change-quantity', 'ShoppingCartController@changeQuantity')->name('cart.changeQuantity');
+    Route::post('change-color', 'ShoppingCartController@changeColor')->name('cart.changeColor');
 });
+
+
