@@ -81,6 +81,9 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function with($relations)
     {
+        if (is_string($relations)) {
+            $relations = func_get_args($relations);
+        }
         $this->model = $this->model->with($relations);
 
         return $this;
@@ -155,7 +158,7 @@ abstract class BaseRepository implements RepositoryInterface
     {
         $values = is_array($values) ? $values : [$values];
         $this->model = $this->model->whereIn($column, $values);
-        
+
         return $this;
     }
 }

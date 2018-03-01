@@ -154,5 +154,14 @@
         'cod' => 'COD: Payment will be made when goods are delivered',
         'e-banking' => 'E-Bank: Online payment by E-banking',
         'no-product-in-cart' => 'No product in cart',
+        'order_id' => 'Order id',
+        'order_date' => 'Order date',
+        'product' => 'Product',
+        'status' => 'Status',
+        'waiting_for_process' => 'Waiting for process',
+        'delivering' => 'Delivering',
+        'done' => 'Delivery success',
+        'cancel' => 'Order is cancelled',
+        'user_review' => 'User review',
     ];
 ?>

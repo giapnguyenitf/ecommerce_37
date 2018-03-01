@@ -80,21 +80,39 @@
                             <div role="tabpanel" class="tab-pane fade" id="profile">
                                 <h2>@lang('label.reviews')</h2>
                                 <div class="submit-review">
-                                    <p><label for="name">@lang('label.name')</label> <input name="name" type="text"></p>
-                                    <p><label for="email">@lang('label.email')</label> <input name="email" type="email"></p>
                                     <div class="rating-chooser">
                                         <p>@lang('label.your_rating')</p>
+                                        <div class='rating-stars'>
+                                            <ul id='stars'>
+                                            <li class='star' title='Poor' data-value='1'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                            </li>
+                                            <li class='star' title='Fair' data-value='2'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                            </li>
+                                            <li class='star' title='Good' data-value='3'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                            </li>
+                                            <li class='star' title='Excellent' data-value='4'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                            </li>
+                                            <li class='star' title='WOW!!!' data-value='5'>
+                                                <i class='fa fa-star fa-fw'></i>
+                                            </li>
+                                            </ul>
+                                        </div>
 
-                                        <div class="rating-wrap-post">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                                         <div class='success-box'>
+                                            <div class='clearfix'></div>
+                                            <div class='text-message'></div>
+                                            <div class='clearfix'></div>
                                         </div>
                                     </div>
-                                    <p><label for="review">@lang('label.your_review')</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
-                                    <p><input type="submit" value="@lang('label.submit')"></p>
+                                    <p><label for="review">@lang('label.your_review')</label> <textarea name="review" id="review" cols="30" rows="10"></textarea></p>
+                                    <span class="help-block">
+                                        <strong class="errors"></strong>
+                                    </span>
+                                    <p><input data-url="{{ route('product.addReview') }}" class="btn btn-primary btn-review" type="button" value="@lang('label.submit')"></p>
                                 </div>
                             </div>
                         </div>
@@ -131,6 +149,42 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <hr>
+            <div class="review-box" id="review-box">
+                <div class="title-box">
+                    <h3>@lang('label.user_review')</h3>
+                </div>
+                <div class="review-box-content">
+                    @foreach ($ratings as $rating )
+                        <div class="review-item">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="user-info-box">
+                                        <div class="avatar-user-review"></div>
+                                        <div class="name-user-review">{{ $rating->user->name }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="star-rating">
+                                        <div class='rating-star'>
+                                                <ul id='stars-rated'>
+                                                    <li class='star selected' title='Poor' data-value='1'>
+                                                       <span class="stars-number">{{ $rating->stars }}</span>&nbsp;<i class='fa fa-star fa-fw'></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                    </div>
+                                    <div class="date-rating"><span>{{ $rating->created_at->format('d/m/Y') }}</span></div>
+                                    <div class="review-messages">{{ $rating->messages }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    <div class="paginate">{{ $ratings->links() }}</div>
                 </div>
             </div>
         </div>

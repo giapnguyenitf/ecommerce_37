@@ -8,7 +8,7 @@
                     <li class="active">@lang('label.shopping-cart')</li>
                 </ol>
             </div>
-            @if (Session::has('shopping-cart'))
+            @if (count(Session::get('shopping-cart')))
                 <div class="col-md-9 table-responsive cart_info">
                     <table class="table table-condensed">
                         <thead>
