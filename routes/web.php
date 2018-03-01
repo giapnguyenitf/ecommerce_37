@@ -62,6 +62,15 @@ Route::prefix('cart')->group(function () {
     Route::post('remove', 'ShoppingCartController@removeCart')->name('cart.remove');
     Route::post('change-quantity', 'ShoppingCartController@changeQuantity')->name('cart.changeQuantity');
     Route::post('change-color', 'ShoppingCartController@changeColor')->name('cart.changeColor');
+    Route::get('order', 'ShoppingCartController@order')->name('cart.order');
+    Route::resource('order-address', 'OrderAddressController', ['only' => [
+        'index',
+        'update',
+    ]]);
+    Route::resource('order-payment', 'OrderPaymentController', ['only' => [
+        'index',
+        'store',
+    ]]);
 });
 
 

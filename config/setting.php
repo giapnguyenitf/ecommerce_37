@@ -22,5 +22,7 @@
         'thumbnails_path' => 'public/thumbnails/',
         'get_top_new_product' => 3,
         'get_top_seller_product' => 3,
+        'cod' => 1,
+        'ebank' => 2,
     ];
 ?>

@@ -4,18 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
 use Session;
 use Response;
 use App\Http\Requests\AddCartRequest;
 use App\Repositories\Contracts\ProductRepositoryInterface;
+use App\Repositories\Contracts\OrderRepositoryInterface;
+use App\Repositories\Contracts\OrderDetailRepositoryInterface;
+
 
 class ShoppingCartController extends Controller
 {
     protected $productRepository;
+    protected $orderRepository;
+    protected $orderDetailRepository;
 
-    public function __construct(ProductRepositoryInterface $productRepository)
-    {
+    public function __construct(
+        ProductRepositoryInterface $productRepository,
+        OrderRepositoryInterface $orderRepository,
+        OrderDetailRepositoryInterface $orderDetailRepository
+    ) {
         $this->productRepository = $productRepository;
+        $this->orderRepository = $orderRepository;
+        $this->orderDetailRepository = $orderDetailRepository;
+
     }
 
     public function show()
@@ -120,5 +132,37 @@ class ShoppingCartController extends Controller
         return Response::json([
                 'status' => 404,
         ]);
+    }
+
+    public function order()
+    {
+        if (Session::has('shopping-cart')) {
+            $shopping_cart = Session::get('shopping-cart');
+            $user_id = Auth::user()->id;
+            $order['user_id'] = $user_id;
+            $total = 0;
+            foreach ($shopping_cart as $cart) {
+                $order['product_id'] = $cart['product_id'];
+                $order['number'] = $cart['quantity'];
+                $order['color_id'] = $cart['color_id'];
+                $product = $this->productRepository->where('id', '=', $cart['product_id'])->with('colorProducts')->get()->first();
+                $total += $product->last_price * $cart['quantity'];
+                $order['total_money'] = $total;
+                $order['payment_id'] = Session::get('payment-method');
+            }
+            $order = $this->orderRepository->create($order);
+            $order_details = [];
+            foreach ($shopping_cart as $cart) {
+                $order_detail['order_id'] = $order->id;
+                $order_detail['product_id'] = $cart['product_id'];
+                $order_detail['color_id'] = $cart['color_id'];
+                $order_detail['quantity'] = $cart['quantity'];
+                array_push($order_details, $order_detail);
+            }
+            $this->orderRepository->createByRelationship('orderDetails', ['model' => $order, 'attribute' => $order_details], true);
+            Session::forget('shopping-cart');
+        }
+
+        return view('order');
     }
 }
