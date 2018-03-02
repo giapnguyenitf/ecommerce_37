@@ -19,5 +19,8 @@
         'perPage' => 5,
         'get_top_product_discount' => 4,
         'folder_thumbnails' => 'public/thumbnails',
+        'thumbnails_path' => 'public/thumbnails/',
+        'get_top_new_product' => 3,
+        'get_top_seller_product' => 3,
     ];
 ?>
