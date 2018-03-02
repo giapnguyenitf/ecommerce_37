@@ -40,6 +40,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         'store',
     ]]);
     Route::get('add-product', 'AddProductsController@index')->name('add-product.index');
+    Route::resource('manage-order', 'OrderController');
 });
 
 Route::namespace('Admin')->group(function () {

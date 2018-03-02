@@ -140,11 +140,9 @@
                                 <a href="{{ route('detailProduct', $recently_viewed_product->id) }}">{{ $recently_viewed_product->name }}</a>
                             </h2>
                             <div class="product-carousel-price">
+                                <ins>{{ $recently_viewed_product->last_price }}</ins>
                                 @if ($recently_viewed_product->discount)
-                                    <ins>{{ $recently_viewed_product->last_price }}</ins>
                                     <del>{{ $recently_viewed_product->price }}</del>
-                                @else
-                                    <ins>{{ $recently_viewed_product->price }}</ins>
                                 @endif
                             </div>
                         </div>

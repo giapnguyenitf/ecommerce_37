@@ -5,5 +5,5 @@ use App\Repositories\Contracts\RepositoryInterface;
 
 interface OrderRepositoryInterface extends RepositoryInterface
 {
-
+    public function getNewOrders();
 }

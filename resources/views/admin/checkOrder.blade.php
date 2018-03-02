@@ -14,7 +14,9 @@
                     <thead>
                         <tr class="cart_menu">
                             <td class="image">@lang('label.order_id')</td>
-                            <td class="user_name">@lang('label.user_name')</td>
+                            <td class="user_name">@lang('label.product')</td>
+                            <td class="color">@lang('label.color')</td>
+                            <td class="quantity">@lang('label.quantity')</td>
                             <td class="name">@lang('label.order_date')</td>
                             <td class="total">@lang('label.total')</td>
                             <td class="status">@lang('label.status')</td>
@@ -22,33 +24,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($newOrders as $newOrder)
+                        @foreach ($order->orderDetails as $order_detail)
                             <tr>
-                                <td>{{ $newOrder->id }}</td>
-                                <td>{{ $newOrder->user->name }}</td>
-                                <td>{{ $newOrder->created_at->format('m/d/Y') }}</td>
-                                <td>{{ $newOrder->total_money }}</td>
-                                <td>{{ $newOrder->status_detail }}</td>
+                                <td>{{ $order_detail->id }}</td>
+                                <td>{{ $order_detail->product->name }}</td>
+                                <td>{{ $order_detail->color->name }}</td>
+                                <td>{{ $order_detail->quantity }}</td>
+                                <td>{{ $order_detail->created_at->format('m/d/Y') }}</td>
+                                <td>{{ $order_detail->total_money }}</td>
+                                <td>{{ $order_detail->status_detail }}</td>
                                 <td>
                                     <div class="form-inline">
                                         <div class="form-group">
-                                            {{ Form::open(['route' => ['manage-order.show', 'id' => $newOrder->id], 'method' => 'GET']) }}
-                                                {{ Form::button('<i class="fa fa-pencil"></i>&nbsp;' . trans('label.edit'), ['class' => 'btn btn-primary btn-sm', 'type' => 'submit']) }}
-                                            {{ Form::close() }}
+                                            <a class="btn btn-success btn-sm" href=""><i class="fa fa-check-circle"></i></a>
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::open(['route' => ['manage-order.destroy', 'id' => $newOrder->id], 'method' => 'DELETE']) }}
-                                                {{ Form::button('<i class="fa fa-trash-o"></i>&nbsp;' . trans('label.delete'), ['class' => 'btn btn-danger btn-sm', 'type' => 'submit']) }}
-                                            {{ Form::close() }}
+                                            <a class="btn btn-warning btn-sm" href=""><i class="fa fa-times-circle"></i></a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
-                    <div class="paginate">
-                        {{ $newOrders->links() }}
-                    </div>
                 </table>
             </div>
         </div>

@@ -108,7 +108,7 @@
                                 <a href="" class=""><i class="lnr lnr-home"></i><span>@lang('label.dashboard')</span></a>
                             </li>
                             <li>
-                                <a href="" class=""><i class="fa fa-file"></i><span>@lang('label.new_orders')</span></a>
+                                <a href="{{ route('manage-order.index') }}" class=""><i class="fa fa-file"></i><span>@lang('label.new_orders')</span></a>
                             </li>
                             <li>
                                 <a href="" class=""><i class="fa fa-file"></i><span>@lang('label.orders_in_process')</span></a>

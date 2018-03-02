@@ -19,6 +19,7 @@ class CreateOrderDetailsTable extends Migration
             $table->string('product_id');
             $table->string('color_id')->nullable();
             $table->string('quantity');
+            $table->integer('status')->default(config('setting.order_detail_waiting_for_process'));
             $table->timestamps();
         });
     }

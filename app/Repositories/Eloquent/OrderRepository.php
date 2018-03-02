@@ -11,4 +11,9 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     {
         return Order::class;
     }
+
+    public function getNewOrders()
+    {
+        return $this->model->where('status', config('setting.waiting_for_process'))->orderBy('created_at', 'desc')->paginate();
+    }
 }

@@ -169,6 +169,9 @@
         'edit_product' => 'Edit product',
         'update_product' => 'Update Product',
         'new_orders' => 'New orders',
-        'orders_in_process' => 'Orders in process'
+        'orders_in_process' => 'Orders in process',
+        'user_name' => 'User name',
+        'accept_order' => 'Accept order',
+        'cancel_order' => 'Cancel order',
     ];
 ?>

@@ -25,5 +25,7 @@
         'cod' => 1,
         'ebank' => 2,
         'get_top_ratings' => 4,
+        'order_detail_waiting_for_process' => 0,
+        'order_detail_ready' => 1,
     ];
 ?>
