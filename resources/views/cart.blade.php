@@ -44,7 +44,7 @@
                                             </div>
                                         </td>
                                         <td class="cart_total">
-                                            <p class="cart_total_price">{{ $cart['total'] }}</p>
+                                            <p class="cart_total_price">{{ $cart['total'] }}&nbsp;@lang('label.vnd')</p>
                                         </td>
                                         <td class="cart_delete">
                                             <a data-url="{{ route('cart.remove') }}" class="cart_quantity_delete" id="{{ $cart['session_id'] }}"><i class="fa fa-times"></i></a>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="box-cart">
-                        <label for="">@lang('label.total'): <span></span></label>
+                        <label for="">@lang('label.total'): <span>{{ $total_money }}</span>&nbsp;@lang('label.vnd')</label>
                         <a href="{{ route('order-address.index') }}" class="btn btn-primary btn-block btn-sm">@lang('label.order')</a>
                     </div>
                 </div>

@@ -108,7 +108,10 @@
                                 <a href="" class=""><i class="lnr lnr-home"></i><span>@lang('label.dashboard')</span></a>
                             </li>
                             <li>
-                                <a href="" class=""><i class="lnr lnr-alarm"></i><span>@lang('label.notifications')</span></a>
+                                <a href="" class=""><i class="fa fa-file"></i><span>@lang('label.new_orders')</span></a>
+                            </li>
+                            <li>
+                                <a href="" class=""><i class="fa fa-file"></i><span>@lang('label.orders_in_process')</span></a>
                             </li>
                             <li>
                                 <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i><span>@lang('label.products')</span>&nbsp;<i class="fa fa-chevron-right"></i></a>
@@ -121,6 +124,7 @@
                                     </ul>
                                 </div>
                             </li>
+
                         </ul>
                     </nav>
                 </div>

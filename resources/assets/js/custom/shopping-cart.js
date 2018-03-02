@@ -31,8 +31,7 @@ $(document).ready(function () {
                 quantity: quantity,
             },
             success: function (data) {
-                console.log(data);
-                $('.cart_total_price').text(last_price * quantity);
+                location.reload();
             },
             error: function (data) {
             }
@@ -52,8 +51,7 @@ $(document).ready(function () {
                 color_id: color_id,
             },
             success: function (data) {
-                console.log(data);
-
+                location.reload();
             },
             error: function (data) {
             }

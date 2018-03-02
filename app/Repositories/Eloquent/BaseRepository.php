@@ -61,7 +61,7 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function delete($id)
     {
-        return $this->model-$columns = ['*']>destroy($id);
+        return $this->model->destroy($id);
     }
 
     public function findByField($field, $value)

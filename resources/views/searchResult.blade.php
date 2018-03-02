@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="latest-product">
-                        <h2 class="section-title">@lang('label.lastest_product')</h2>
+                        <h2 class="section-title">@lang('label.search_result')</h2>
                         <div class="product-carousel">
                             @foreach ($hotProducts as $hotProduct)
                                 <div class="single-product">

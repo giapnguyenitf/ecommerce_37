@@ -66,4 +66,9 @@ class Product extends Model
     {
         return $this->hasMany(OrderDetail::class);
     }
+
+    public function getDiscountPercentAttribute()
+    {
+        return $this->discount * 100;
+    }
 }

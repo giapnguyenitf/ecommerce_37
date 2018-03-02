@@ -14,4 +14,6 @@ interface ProductRepositoryInterface extends RepositoryInterface
     public function getDetailProduct($id);
 
     public function getRecentlyViewedProducts($array);
+
+    public function findByName($name);
 }

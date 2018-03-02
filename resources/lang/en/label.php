@@ -163,5 +163,12 @@
         'done' => 'Delivery success',
         'cancel' => 'Order is cancelled',
         'user_review' => 'User review',
+        'search' => 'Search',
+        'search_result' => 'Search result',
+        'empty_view_history' => 'Empty view history',
+        'edit_product' => 'Edit product',
+        'update_product' => 'Update Product',
+        'new_orders' => 'New orders',
+        'orders_in_process' => 'Orders in process'
     ];
 ?>

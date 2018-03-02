@@ -35,6 +35,7 @@ class ShoppingCartController extends Controller
         if (Session::has('shopping-cart')) {
             $data = Session::get('shopping-cart');
             $carts = collect();
+            $total_money = 0;
             foreach ($data as $key => $item) {
                 $cart = $this->productRepository->where('id', '=', $item['product_id'])->with('colorProducts')->get();
                 $cart->put('color_id', $item['color_id']);
@@ -42,9 +43,10 @@ class ShoppingCartController extends Controller
                 $cart->put('total', $cart->first()->last_price * $item['quantity']);
                 $cart->put('session_id', $key);
                 $carts->push($cart);
+                $total_money += $cart->first()->last_price * $item['quantity'];
             }
 
-            return view('cart', compact('carts'));
+            return view('cart', compact('carts', 'total_money'));
         }
 
         return view('cart');
@@ -161,8 +163,9 @@ class ShoppingCartController extends Controller
             }
             $this->orderRepository->createByRelationship('orderDetails', ['model' => $order, 'attribute' => $order_details], true);
             Session::forget('shopping-cart');
+
         }
 
-        return view('order');
+        return redirect()->route('user.listOrder');
     }
 }
