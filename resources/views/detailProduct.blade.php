@@ -103,6 +103,36 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="latest-product">
+                <h2 class="section-title">@lang('label.recently_viewed')</h2>
+                <div class="product-carousel">
+                    @foreach ($recently_viewed_products as $recently_viewed_product)
+                        <div class="single-product">
+                            <div class="product-f-image">
+                                <img src="{{ $recently_viewed_product->thumbnail_path }}" alt="">
+                                <div class="product-hover">
+                                    <a href="#" class="add-to-cart-link">
+                                        <i class="fa fa-shopping-cart"></i> @lang('label.add_to_cart')</a>
+                                    <a href="{{ route('detailProduct', $recently_viewed_product->id) }}" class="view-details-link">
+                                        <i class="fa fa-link"></i> @lang('label.see_detail')</a>
+                                </div>
+                            </div>
+                            <h2>
+                                <a href="{{ route('detailProduct', $recently_viewed_product->id) }}">{{ $recently_viewed_product->name }}</a>
+                            </h2>
+                            <div class="product-carousel-price">
+                                <ins>{{ $recently_viewed_product->last_price }}</ins>
+                                @if ($recently_viewed_product->discount)
+                                    <del>{{ $recently_viewed_product->price }}</del>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 @section('javascript')

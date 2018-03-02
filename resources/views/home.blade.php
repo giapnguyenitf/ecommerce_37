@@ -151,25 +151,35 @@
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">@lang('label.recently_viewed')</h2>
                         <a href="#" class="wid-view-more">@lang('label.view_all')</a>
-                        <div class="single-wid-product">
-                            <a href="">
-                                <img src="" alt="" class="product-thumb">
-                            </a>
-                            <h2>
-                                <a href=""></a>
-                            </h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                        @if (isset($recently_viewed_product))
+                            @foreach ($recently_viewed_products as $recently_viewed_product)
+                                <div class="single-wid-product">
+                                    <a href="{{ route('detailProduct', $recently_viewed_product->id) }}">
+                                        <img src="{{ $recently_viewed_product->thumbnail_path }}" alt="" class="product-thumb">
+                                    </a>
+                                    <h2>
+                                        <a href="{{ route('detailProduct', $recently_viewed_product->id) }}">{{ $recently_viewed_product->name }}</a>
+                                    </h2>
+                                    <div class="product-wid-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product-wid-price">
+                                        <ins>{{ $recently_viewed_product->last_price }}</ins>
+                                        @if ($recently_viewed_product->discount)
+                                            <del>{{ $recently_viewed_product->price }}</del>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="no-history">
+                                <h4>@lang('label.empty_view_history')</h4>
                             </div>
-                            <div class="product-wid-price">
-                                <ins></ins>
-                                <del></del>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-4">
