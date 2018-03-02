@@ -53,3 +53,6 @@ Route::namespace('Admin')->group(function () {
     Route::get('get/categories', 'CategoryController@getCategories')->name('getCategories');
     Route::resource('category', 'CategoryController');
 });
+
+Route::get('detail-product/{id}', 'DetailProductController@show')->name('detailProduct');
+Route::get('get/detail-color-product/{id}', 'DetailProductController@getDetailColorProduct')->name('getDetailColorProduct');

@@ -261,7 +261,8 @@
             </div>
         </div>
         @yield('javascript')
-        {{ Html::script('js/app.js') }}
+        {{ Html::script('https://code.jquery.com/jquery.min.js') }}
+        {{ Html::script('http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
         {{ Html::script('js/custom/owl.carousel.min.js') }}
         {{ Html::script('js/custom/jquery.sticky.js') }}
         {{ Html::script('js/custom/jquery.easing.1.3.min.js') }}

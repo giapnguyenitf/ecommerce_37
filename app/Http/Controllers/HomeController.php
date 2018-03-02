@@ -28,7 +28,9 @@ class HomeController extends Controller
     {
         $products = $this->productRepository->all();
         $hotProducts = $this->productRepository->getHotProducts(config('setting.get_top_product_discount'));
+        $topNewProducts = $this->productRepository->getTopNew(config('setting.get_top_new_product'));
+        $topSellerProducts = $this->productRepository->getTopSeller(config('setting.get_top_seller_product'));
 
-        return view('home', compact('products', 'hotProducts'));
+        return view('home', compact('products', 'hotProducts', 'topNewProducts', 'topSellerProducts'));
     }
 }
