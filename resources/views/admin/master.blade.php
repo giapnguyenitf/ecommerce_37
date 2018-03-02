@@ -16,7 +16,7 @@
         <div id="wrapper">
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="brand admin-logo">
-                    <a href="">
+                    <a href="{{ route('home') }}">
                         <img src="{{ asset('images/logo.png') }}" alt="@lang('label.logo')" class="img-responsive logo">
                     </a>
                 </div>

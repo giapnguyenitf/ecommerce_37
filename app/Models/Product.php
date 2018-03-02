@@ -17,7 +17,8 @@ class Product extends Model
         'discount',
         'star_rating',
         'status',
-        'manufacturer'
+        'manufacturer',
+        'thumbnail'
     ];
 
     public function ratings()

@@ -329,9 +329,6 @@ body {
     color: #1bd172;
 }
 
-.block-slider .caption-group .caption {}
-
-
 /*----------------------
 [10. Block top seller ]
 ------------------------*/
@@ -559,8 +556,6 @@ body {
 .single-product {
     overflow: hidden;
 }
-
-.single-product:hover {}
 
 .single-product:hover .product-hover a.add-to-cart-link {
     top: 32%;
@@ -1250,8 +1245,6 @@ div.cart-collaterals ul.products li.product {
     background: none repeat scroll 0 0 #f4f4f4;
 }
 
-.onsale {}
-
 div.cart-collaterals ul.products li.product .onsale {
     background: none repeat scroll 0 0 #5a88ca;
     color: #fff;
@@ -1272,8 +1265,6 @@ div.cart-collaterals ul.products li.product .price {
     margin-bottom: 10px;
     overflow: hidden;
 }
-
-.price>ins {}
 
 div.cart-collaterals ul.products li.product .price ins {
     color: #5a88ca;

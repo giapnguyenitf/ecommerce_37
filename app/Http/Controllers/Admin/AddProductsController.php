@@ -6,9 +6,9 @@ use Auth;
 use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\Eloquent\BrandRepository;
-use App\Repositories\Eloquent\ProductRepository;
-use App\Repositories\Eloquent\CategoryRepository;
+use App\Repositories\Contracts\BrandRepositoryInterface;
+use App\Repositories\Contracts\ProductRepositoryInterface;
+use App\Repositories\Contracts\CategoryRepositoryInterface;
 
 class AddProductsController extends Controller
 {
@@ -17,9 +17,9 @@ class AddProductsController extends Controller
     protected $categoryRepository;
 
     public function __construct(
-        ProductRepository $productRepository,
-        BrandRepository $brandRepository,
-        CategoryRepository $categoryRepository
+        ProductRepositoryInterface $productRepository,
+        BrandRepositoryInterface $brandRepository,
+        CategoryRepositoryInterface $categoryRepository
     ) {
         $this->productRepository = $productRepository;
         $this->brandRepository = $brandRepository;
@@ -28,8 +28,8 @@ class AddProductsController extends Controller
 
     public function index()
     {
-        $categories = $this->categoryRepository->getParentCategories();
-        $brands = $this->brandRepository->all();
+        $categories = $this->categoryRepository->getParentCategories()->pluck('name', 'id');
+        $brands = $this->brandRepository->all()->pluck('name', 'id');
 
         return view('admin.addProduct', compact('brands', 'categories'));
     }

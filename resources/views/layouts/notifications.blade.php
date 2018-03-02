@@ -20,3 +20,35 @@
         {{ Session::get('update_password_fail') }}
     </div>
 @endif
+<!-- add product -->
+@if (Session::has('add_product_success'))
+    <div class="alert alert-success">
+        {{ Session::get('add_product_success') }}
+    </div>
+@endif
+@if (Session::has('add_product_fail'))
+    <div class="alert alert-danger">
+        {{ Session::get('add_product_fail') }}
+    </div>
+@endif
+@if (Session::has('product_not_found'))
+    <div class="alert alert-danger">
+        {{ Session::get('product_not_found') }}
+    </div>
+@endif
+<!-- add color product -->
+@if (Session::has('color_is_existed'))
+    <div class="alert alert-danger">
+        {{ Session::get('color_is_existed') }}
+    </div>
+@endif
+@if (Session::has('add_color_product_success'))
+    <div class="alert alert-success">
+        {{ Session::get('add_color_product_success') }}
+    </div>
+@endif
+@if (Session::has('add_color_product_fail'))
+    <div class="alert alert-danger">
+        {{ Session::get('add_color_product_fail') }}
+    </div>
+@endif
