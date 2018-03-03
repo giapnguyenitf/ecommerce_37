@@ -138,5 +138,11 @@
         'color' => 'Color',
         'see_detail' => 'See detail',
         'shop' => 'Shop',
+        'shopping-cart' => 'Shopping cart',
+        'item' => 'Item',
+        'quantity' => 'Quantity',
+        'total' => 'Total',
+        'order' => 'Order',
+        'empty_view_history' => 'Emtpy view history',
     ];
 ?>

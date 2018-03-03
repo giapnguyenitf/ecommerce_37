@@ -26,7 +26,6 @@ Route::prefix('user')->group(function () {
         'index',
         'update',
     ]]);
-
     Route::resource('password', 'User\PasswordController', ['only' => [
         'index',
         'update',
@@ -40,12 +39,10 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         'edit',
         'store'
     ]]);
-
     Route::resource('update-detail', 'ImagesController', [ 'only' => [
         'show',
         'store',
     ]]);
-
     Route::get('add-product', 'AddProductsController@index')->name('add-product.index');
 });
 
@@ -54,5 +51,9 @@ Route::namespace('Admin')->group(function () {
     Route::resource('category', 'CategoryController');
 });
 
+Route::namespace('Admin')->group(function () {
+    Route::get('get/categories', 'CategoryController@getCategories')->name('getCategories');
+    Route::resource('category', 'CategoryController');
+});
 Route::get('detail-product/{id}', 'DetailProductController@show')->name('detailProduct');
 Route::get('get/detail-color-product/{id}', 'DetailProductController@getDetailColorProduct')->name('getDetailColorProduct');
