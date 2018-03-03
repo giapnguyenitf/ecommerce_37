@@ -49,11 +49,17 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 Route::namespace('Admin')->group(function () {
     Route::get('get/categories', 'CategoryController@getCategories')->name('getCategories');
     Route::resource('category', 'CategoryController');
+    Route::get('add-product', 'AddProductsController@index')->name('add-product.index');
 });
 
-Route::namespace('Admin')->group(function () {
-    Route::get('get/categories', 'CategoryController@getCategories')->name('getCategories');
-    Route::resource('category', 'CategoryController');
-});
 Route::get('detail-product/{id}', 'DetailProductController@show')->name('detailProduct');
 Route::get('get/detail-color-product/{id}', 'DetailProductController@getDetailColorProduct')->name('getDetailColorProduct');
+Route::prefix('cart')->group(function () {
+    Route::get('show', 'ShoppingCartController@show')->name('cart.show');
+    Route::post('add', 'ShoppingCartController@addCart')->name('cart.add');
+    Route::post('remove', 'ShoppingCartController@removeCart')->name('cart.remove');
+    Route::post('change-quantity', 'ShoppingCartController@changeQuantity')->name('cart.changeQuantity');
+    Route::post('change-color', 'ShoppingCartController@changeColor')->name('cart.changeColor');
+});
+
+

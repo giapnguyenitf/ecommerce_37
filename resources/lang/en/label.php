@@ -144,5 +144,13 @@
         'total' => 'Total',
         'order' => 'Order',
         'empty_view_history' => 'Emtpy view history',
+        'see_detail' => 'See detail',
+        'recently_viewed' => 'Recently viewed',
+        'shop' => 'Shop',
+        'vnd' => 'VND',
+        'add_cart_success' => 'Add cart success !',
+        'add_cart_fail' => 'Add cart fail !',
+        'notification' => 'Notification',
+        'no_product_in_cart' => 'No product in cart',
     ];
 ?>
