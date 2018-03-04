@@ -1462,3 +1462,11 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
 body {
     background: #ffffff !important;
 }
+.img-product {
+    height: 100px;
+    width: 80px;
+    overflow: hidden;
+}
+.cart_quantity_input {
+    width: 50px;
+}

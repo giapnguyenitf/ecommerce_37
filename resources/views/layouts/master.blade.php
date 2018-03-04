@@ -128,7 +128,7 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="shopping-item">
-                            <a href="">@lang('label.cart') -
+                            <a href="{{ route('cart.show') }}">@lang('label.cart') -
                                 <span class="cart-amunt">#</span><i class="fa fa-shopping-cart"></i>
                                 <span class="product-count">#</span>
                             </a>
@@ -260,7 +260,6 @@
                 </div>
             </div>
         </div>
-        @yield('javascript')
         {{ Html::script('https://code.jquery.com/jquery.min.js') }}
         {{ Html::script('http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
         {{ Html::script('js/custom/owl.carousel.min.js') }}
@@ -269,5 +268,6 @@
         {{ Html::script('js/custom/main.js') }}
         {{ Html::script('js/custom/bxslider.min.js') }}
         {{ Html::script('js/custom/script.slider.js') }}
+        @yield('javascript')
     </body>
 </html>
