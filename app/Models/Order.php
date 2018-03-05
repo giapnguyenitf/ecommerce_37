@@ -8,11 +8,9 @@ class Order extends Model
 {
     protected $fillable = [
         'user_id',
-        'product_id',
-        'number',
-        'color',
         'payment_id',
         'status',
+        'total_money'
     ];
 
     public function payment()
@@ -25,13 +23,8 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function product()
+    public function orderDetails()
     {
-        return $this->belongsTo(Product::class);
-    }
-
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(OrderDetail::class);
     }
 }

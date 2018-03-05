@@ -1470,3 +1470,7 @@ body {
 .cart_quantity_input {
     width: 50px;
 }
+
+.delivery-address-box {
+    margin-top: 20px;
+}

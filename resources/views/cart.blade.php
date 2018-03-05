@@ -56,7 +56,7 @@
                 <div class="col-md-3">
                     <div class="box-cart">
                         <label for="">@lang('label.total'): <span></span></label>
-                        <button class="btn btn-primary btn-block btn-sm" type="button">@lang('label.order')</button>
+                        <a href="{{ route('order-address.index') }}" class="btn btn-primary btn-block btn-sm">@lang('label.order')</a>
                     </div>
                 </div>
             @else
