@@ -144,13 +144,17 @@
         'total' => 'Total',
         'order' => 'Order',
         'empty_view_history' => 'Emtpy view history',
-        'see_detail' => 'See detail',
         'recently_viewed' => 'Recently viewed',
         'shop' => 'Shop',
         'vnd' => 'VND',
         'add_cart_success' => 'Add cart success !',
         'add_cart_fail' => 'Add cart fail !',
         'notification' => 'Notification',
+        'delivery_address' => '2. Delivery address',
+        'delivery_to_address' => 'Delivery to this address',
+        'choose_payment_method' => '3. Choose payment method',
+        'cod' => 'COD: Payment will be made when goods are delivered',
+        'e-banking' => 'E-Bank: Online payment by E-banking',
         'no_product_in_cart' => 'No product in cart',
     ];
 ?>

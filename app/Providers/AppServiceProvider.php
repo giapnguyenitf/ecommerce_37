@@ -54,5 +54,25 @@ class AppServiceProvider extends ServiceProvider
             Contracts\ImageRepositoryInterface::class,
             Eloquent\ImageRepository::class
         );
+
+        $this->app->bind(
+            Contracts\OrderRepositoryInterface::class,
+            Eloquent\OrderRepository::class
+        );
+
+        $this->app->bind(
+            Contracts\OrderDetailRepositoryInterface::class,
+            Eloquent\OrderDetailRepository::class
+        );
+
+        $this->app->bind(
+            Contracts\UserRepositoryInterface::class,
+            Eloquent\UserRepository::class
+        );
+
+        $this->app->bind(
+            Contracts\PaymentRepositoryInterface::class,
+            Eloquent\PaymentRepository::class
+        );
     }
 }
