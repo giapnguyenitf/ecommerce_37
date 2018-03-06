@@ -21,15 +21,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('auth/{social}', 'Auth\SocialAuthController@redirectToProvider')->name('socialAuth');
 Route::get('auth/{social}/callback', 'Auth\SocialAuthController@handleProviderCallback');
 
-Route::prefix('user')->group(function () {
-    Route::resource('profile', 'User\UserController', ['only' => [
+Route::prefix('user')->namespace('User')->group(function () {
+    Route::resource('profile', 'UserController', ['only' => [
         'index',
         'update',
     ]]);
-    Route::resource('password', 'User\PasswordController', ['only' => [
+    Route::resource('password', 'PasswordController', ['only' => [
         'index',
         'update',
     ]]);
+    Route::get('list-order', 'ListOrderController@index')->name('user.listOrder');
 });
 
 Route::prefix('admin')->namespace('Admin')->group(function () {
@@ -70,3 +71,28 @@ Route::prefix('cart')->group(function () {
         'store',
     ]]);
 });
+
+Route::prefix('product')->group(function () {
+    Route::get('get/detail-color-product/{id}', 'DetailProductController@getDetailColorProduct')->name('getDetailColorProduct');
+    Route::post('post/review', 'DetailProductController@addReview')->name('product.addReview');
+    Route::get('detail/{id}', 'DetailProductController@show')->name('detailProduct');
+});
+
+Route::prefix('cart')->group(function () {
+    Route::get('/', 'ShoppingCartController@show')->name('cart.show');
+    Route::post('add', 'ShoppingCartController@addCart')->name('cart.add');
+    Route::post('remove', 'ShoppingCartController@removeCart')->name('cart.remove');
+    Route::post('change-quantity', 'ShoppingCartController@changeQuantity')->name('cart.changeQuantity');
+    Route::post('change-color', 'ShoppingCartController@changeColor')->name('cart.changeColor');
+    Route::get('order', 'ShoppingCartController@order')->name('cart.order');
+    Route::resource('order-address', 'OrderAddressController', ['only' => [
+        'index',
+        'update',
+    ]]);
+    Route::resource('order-payment', 'OrderPaymentController', ['only' => [
+        'index',
+        'store',
+    ]]);
+});
+
+

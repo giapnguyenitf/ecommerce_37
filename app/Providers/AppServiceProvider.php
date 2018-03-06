@@ -74,5 +74,10 @@ class AppServiceProvider extends ServiceProvider
             Contracts\PaymentRepositoryInterface::class,
             Eloquent\PaymentRepository::class
         );
+
+        $this->app->bind(
+            Contracts\RatingRepositoryInterface::class,
+            Eloquent\RatingRepository::class
+        );
     }
 }

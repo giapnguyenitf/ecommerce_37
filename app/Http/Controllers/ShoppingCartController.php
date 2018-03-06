@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Mail;
 use Session;
 use Response;
+use Exception;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddCartRequest;
 use App\Repositories\Contracts\ProductRepositoryInterface;
@@ -140,6 +142,9 @@ class ShoppingCartController extends Controller
             }
 
             Session::flash('add_order_success', trans('label.add_order_success'));
+            Mail::send('admin.mailOrderSuccess', ['user_name' => Auth::user()->name, 'order' => $order, 'order_details' => $order_details], function ($message) {
+                $message->to(Auth::user()->email, trans('label.email.u-stora'))->subject(trans('label.mail.confirm_order'));
+            });
         } catch(Exception $e) {
             Session::flash('add_order_fail', trans('label.add_order_fail'));
         }

@@ -16,3 +16,4 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .copy('resources/assets/js/custom/', 'public/js/custom')
    .copy('resources/assets/css/', 'public/css')
    .copy('resources/assets/images', 'public/images');
+

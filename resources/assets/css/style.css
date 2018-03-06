@@ -1474,3 +1474,55 @@ body {
 .delivery-address-box {
     margin-top: 20px;
 }
+
+.rating-stars ul {
+    list-style-type:none;
+    padding:0;
+}
+.rating-stars ul > li.star {
+    display:inline-block;
+    padding-right: 15px;
+}
+
+.rating-stars ul > li.star > i.fa {
+    font-size:2.5em;
+    color:#ccc;
+}
+
+.rating-stars ul > li.star.hover > i.fa {
+    color:#FFCC36;
+}
+
+.rating-stars ul > li.star.selected > i.fa {
+    color:#FF912C;
+}
+/* review-box */
+.avatar-user-review {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 1px solid #969494;
+    background: #80aded;
+    margin: auto;
+}
+
+.name-user-review {
+    text-align: center;
+}
+
+.review-item {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+.stars-number {
+    font-size: 16px;
+}
+.rating-star ul {
+    list-style-type:none;
+    padding:0;
+}
+.rating-star ul > li.star.selected > i.fa {
+    color:#FF912C;
+    font-size: 1.2em !important;
+}

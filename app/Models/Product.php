@@ -61,4 +61,9 @@ class Product extends Model
     {
         return $this->price - $this->price * $this->discount;
     }
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
 }
