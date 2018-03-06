@@ -156,5 +156,17 @@
         'cod' => 'COD: Payment will be made when goods are delivered',
         'e-banking' => 'E-Bank: Online payment by E-banking',
         'no_product_in_cart' => 'No product in cart',
+        'product' => 'Product',
+        'mail' => [
+            'hi' => 'Hi',
+            'order_success' => 'Congratolation! Your order is successfully!',
+            'order_info' => 'Order infomation',
+            'payment_method' => 'Payment mothod',
+            'thank_for_order' => 'Thank You for Your Order!',
+            'more_info' => 'More infomation, please go to:',
+            'confirm_order' => 'Confirm order',
+            'total_money_in_order' => 'Total money in order:',
+            'u-stora' => 'U-stora',
+        ]
     ];
 ?>

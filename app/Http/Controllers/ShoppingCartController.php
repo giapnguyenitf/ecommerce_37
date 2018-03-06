@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Mail;
 use Session;
 use Response;
+use Exception;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddCartRequest;
 use App\Repositories\Contracts\ProductRepositoryInterface;
@@ -135,10 +137,13 @@ class ShoppingCartController extends Controller
                 $shopping_cart = Session::get('shopping-cart');
                 $user_id = Auth::user()->id;
                 $order = $this->createOrder($user_id, $shopping_cart);
-                $order_detail = $this->createOrderDetail($order, $shopping_cart);
+                $order_details = $this->createOrderDetail($order, $shopping_cart);
                 Session::forget('shopping-cart');
             }
             Session::flash('add_order_success', trans('label.add_order_success'));
+            Mail::send('admin.mailOrderSuccess', ['user_name' => Auth::user()->name, 'order' => $order, 'order_details' => $order_details], function($message){
+                $message->to(Auth::user()->email, trans('label.u-stora'))->subject(trans('label.mail.confirm_order'));
+	        });
         } catch(Exception $e) {
             Session::flash('add_order_fail', trans('label.add_order_fail'));
         }
@@ -191,6 +196,8 @@ class ShoppingCartController extends Controller
             $order_detail['quantity'] = $cart['quantity'];
             array_push($order_details, $order_detail);
         }
-        $this->orderRepository->createByRelationship('orderDetails', ['model' => $order, 'attribute' => $order_details], true);
+        $order_details = $this->orderRepository->createByRelationship('orderDetails', ['model' => $order, 'attribute' => $order_details], true);
+
+        return $order_details;
     }
 }
