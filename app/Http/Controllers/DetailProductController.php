@@ -62,7 +62,7 @@ class DetailProductController extends Controller
         ]);
         $review['user_id'] = Auth::user()->id;
         $rating = $this->ratingRepository->create($review);
-        $rating = $this->ratingRepository->where('id', '=', $rating->id)->with('user')->get()->first();
+        $rating = $this->ratingRepository->where('id', $rating->id)->with('user')->get()->first();
 
         return Response::json($rating);
     }

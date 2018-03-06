@@ -33,12 +33,12 @@
                                     <div class="form-inline">
                                         <div class="form-group">
                                             {{ Form::open(['route' => ['manage-order.show', 'id' => $newOrder->id], 'method' => 'GET']) }}
-                                                {{ Form::button('<i class="fa fa-pencil"></i>&nbsp;' . trans('label.edit'), ['class' => 'btn btn-primary btn-sm', 'type' => 'submit']) }}
+                                                {{ Form::button('<i class="fa fa-pencil"></i>', ['class' => 'btn btn-primary btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::open(['route' => ['manage-order.destroy', 'id' => $newOrder->id], 'method' => 'DELETE']) }}
-                                                {{ Form::button('<i class="fa fa-trash-o"></i>&nbsp;' . trans('label.delete'), ['class' => 'btn btn-danger btn-sm', 'type' => 'submit']) }}
+                                                {{ Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>
                                     </div>

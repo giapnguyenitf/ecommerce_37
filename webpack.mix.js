@@ -15,4 +15,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .copy('resources/assets/js/custom/', 'public/js/custom')
    .copy('resources/assets/css/', 'public/css')
-   .copy('resources/assets/images', 'public/images');
+   .copy('resources/assets/images', 'public/images')
+   .copy('node_modules/chart.js/dist/Chart.js', 'public/js');

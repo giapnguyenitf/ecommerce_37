@@ -105,26 +105,33 @@
                     <nav>
                         <ul class="nav">
                             <li>
-                                <a href="" class=""><i class="lnr lnr-home"></i><span>@lang('label.dashboard')</span></a>
+                                <a href="{{ route('admin.statistic') }}" class=""><i class="lnr lnr-home"></i><span>@lang('label.dashboard')</span></a>
                             </li>
                             <li>
-                                <a href="{{ route('manage-order.index') }}" class=""><i class="fa fa-file"></i><span>@lang('label.new_orders')</span></a>
+                                <a href="{{ route('manage-order.index') }}" class=""><span class="lnr lnr-cart"></span>&nbsp;<span>@lang('label.new_orders')</span></a>
                             </li>
                             <li>
-                                <a href="" class=""><i class="fa fa-file"></i><span>@lang('label.orders_in_process')</span></a>
+                                <a href="" class=""><span class="lnr lnr-list"></span>&nbsp;<span>@lang('label.orders_in_process')</span></a>
                             </li>
                             <li>
-                                <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i><span>@lang('label.products')</span>&nbsp;<i class="fa fa-chevron-right"></i></a>
+                                <a href="#subPages" data-toggle="collapse" class="collapsed"><span class="lnr lnr-store"></span>&nbsp;<span>@lang('label.products')</span>&nbsp;<span class="lnr lnr-chevron-right"></span></a>
                                 <div id="subPages" class="collapse ">
                                     <ul class="nav">
-                                        <li><a href="{{ route('manage-product.index') }}" class="">@lang('label.list_products')</a></li>
+                                        <li>
+                                            <a href="{{ route('manage-product.index') }}" class="">@lang('label.list_products')</a>
+                                        </li>
                                         <li>
                                             <a href="{{ route('add-product.index') }}" class="">@lang('label.add_products')</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-
+                            <li>
+                                <a href="{{ route('manage-user.index') }}" class=""><span class="lnr lnr-users"></span>&nbsp;<span>@lang('label.users')</span></a>
+                            </li>
+                            <li>
+                                <a href="" class=""><span class="lnr lnr-funnel"></span>&nbsp;<span>@lang('label.categories')</span></a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

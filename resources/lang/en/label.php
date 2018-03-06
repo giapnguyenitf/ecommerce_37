@@ -173,5 +173,13 @@
         'user_name' => 'User name',
         'accept_order' => 'Accept order',
         'cancel_order' => 'Cancel order',
+        'users' => 'Users',
+        'view_details' => 'View details',
+        'new_order' => 'New order',
+        'ratings' => 'Ratings',
+        'id' => 'Id',
+        'add_new' => 'Add new',
+        'is_admin' => 'Is admin',
+        'add_new_user' => 'Add new user',
     ];
 ?>

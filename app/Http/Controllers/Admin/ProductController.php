@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Session;
-use Exception;
+// use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UploadProductRequest;
@@ -156,7 +156,7 @@ class ProductController extends Controller
     {
         try
         {
-            $this->productRepository->delete($id);
+            $this->productRepository->destroy($id);
             Session::flash('label.delete_success');
         } catch (Exception $e) {
             Session::flash('label.delete_fail');

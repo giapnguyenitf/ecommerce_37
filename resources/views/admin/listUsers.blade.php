@@ -3,41 +3,39 @@
 @endsection
 @section('content')
     <h3 class="page-title">@lang('label.list_products')</h3>
+    @include('layouts.notifications')
     <div class="row">
-    <div class="">
         <div class="panel">
             <div class="panel-heading">
-                <h3 class="panel-title"></h3>
+                <a class="btn btn-success btn-sm" href="{{ route('manager-user.addNew') }}"><i class="fa fa-plus"></i>&nbsp;@lang('label.add_new')</a>
             </div>
             <div class="panel-body">
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>@lang('label.id')</th>
                             <th>@lang('label.name')</th>
-                            <th>@lang('label.star_ratings')</th>
-                            <th>@lang('label.number')</th>
-                            <th>@lang('label.manufacturer')</th>
-                            <th>@lang('label.sold')</th>
-                            <th>@lang('label.options')</th>
+                            <th>@lang('label.email')</th>
+                            <th>@lang('label.phone')</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $product)
+                        @foreach ($users as $user)
                             <tr>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->star_rating }}</td>
-                                <td>{{ $product->colorProducts->sum('number') }}</td>
-                                <td>{{ $product->manufacturer }}</td>
-                                <td>{{ $product->colorProducts->sum('sold') }}</td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->phone }}</td>
                                 <td>
                                     <div class="form-inline">
                                         <div class="form-group">
-                                            {{ Form::open(['route' => ['manage-product.show', 'id' => $product->id], 'method' => 'GET']) }}
+                                            {{ Form::open(['route' => ['manage-user.show', 'id' => $user->id], 'method' => 'GET']) }}
                                                 {{ Form::button('<i class="fa fa-pencil"></i>', ['class' => 'btn btn-primary btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::open(['route' => ['manage-product.destroy', 'id' => $product->id], 'method' => 'DELETE']) }}
+                                            {{ Form::open(['route' => ['manage-user.destroy', 'id' => $user->id], 'method' => 'DELETE']) }}
                                                 {{ Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>
@@ -45,7 +43,7 @@
                                 </td>
                             </tr>
                         @endforeach
-                        {{ $products->links() }}
+                        {{ $users->links() }}
                     </tbody>
                 </table>
             </div>

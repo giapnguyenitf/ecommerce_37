@@ -41,6 +41,10 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     ]]);
     Route::get('add-product', 'AddProductsController@index')->name('add-product.index');
     Route::resource('manage-order', 'OrderController');
+    Route::get('dashboard-statistic', 'StatisticController@index')->name('admin.statistic');
+    Route::get('dashboard-statistic/chart', 'StatisticController@statisticOrder')->name('order.getStatistic');
+    Route::get('manager-user/add-new', 'UserController@addNew')->name('manager-user.addNew');
+    Route::resource('manage-user', 'UserController');
 });
 
 Route::namespace('Admin')->group(function () {
