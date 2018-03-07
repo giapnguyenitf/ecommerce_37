@@ -94,7 +94,7 @@
                                             {{ Form::textarea('review', null, ['id' => 'review', 'cols' => 30, 'rows' => 10]) }}
                                         </p>
                                         <p>
-                                            {{ Form::button(trans('label.submit'), ['class' => 'btn btn-primary']) }}
+                                            {{ Form::button(trans('label.submit'), ['class' => 'btn btn-primary btn-review', 'id' => 'btn-review']) }}
                                         </p>
                                     {{ Form::close() }}
                                 </div>
@@ -134,6 +134,42 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <hr>
+            <div class="review-box" id="review-box">
+                <div class="title-box">
+                    <h3>@lang('label.user_review')</h3>
+                </div>
+                <div class="review-box-content">
+                    @foreach ($ratings as $rating )
+                        <div class="review-item">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="user-info-box">
+                                        <div class="avatar-user-review"></div>
+                                        <div class="name-user-review">{{ $rating->user->name }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="star-rating">
+                                        <div class='rating-star'>
+                                                <ul id='stars-rated'>
+                                                    <li class='star selected' title='@lang('label.poor')' data-value='1'>
+                                                       <span class="stars-number">{{ $rating->stars }}</span>&nbsp;<i class='fa fa-star fa-fw'></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                    </div>
+                                    <div class="date-rating"><span>{{ $rating->created_at->format('d/m/Y') }}</span></div>
+                                    <div class="review-messages">{{ $rating->messages }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    <div class="paginate">{{ $ratings->links() }}</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="modalSuccess" class="modal fade" role="dialog">
@@ -163,11 +199,13 @@
         </div>
       </div>
     </div>
+
 @endsection
 @section('javascript')
     {{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js') }}
     {{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js') }}
     {{ Html::script('http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
     {{ Html::script('js/custom/ajax-setup.js') }}
+    {{ Html::script('messages.js') }}
     {{ Html::script('js/custom/detail-product.js') }}
 @endsection

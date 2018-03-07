@@ -72,3 +72,4 @@
     {{ Html::script('js/custom/ajax-setup.js') }}
     {{ Html::script('js/custom/shopping-cart.js') }}
 @endsection
+

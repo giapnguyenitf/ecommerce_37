@@ -128,9 +128,9 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="shopping-item">
-                            <a href="{{ route('cart.show') }}">@lang('label.cart') -
-                                <span class="cart-amunt">#</span><i class="fa fa-shopping-cart"></i>
-                                <span class="product-count">#</span>
+                            <a href="{{ route('cart.show') }}">@lang('label.cart')
+                                <span class="cart-amunt"></span><i class="fa fa-shopping-cart"></i>
+                                <span class="product-count">@if (Session::has('shopping-cart')) {{ count(Session::get('shopping-cart')) }} @else {{ 0 }} @endif</span>
                             </a>
                         </div>
                     </div>
