@@ -7,7 +7,7 @@
     <div class="">
         <div class="panel">
             <div class="panel-heading">
-                <h3 class="panel-title"></h3>
+                <a href="{{ route('product.exportFile') }}" class="btn btn-success">@lang('label.export_products')</a>
             </div>
             <div class="panel-body">
                 <table class="table">
@@ -33,12 +33,12 @@
                                     <div class="form-inline">
                                         <div class="form-group">
                                             {{ Form::open(['route' => ['manage-product.edit', 'id' => $product->id], 'method' => 'GET']) }}
-                                                {{ Form::button('<i class="fa fa-pencil"></i>&nbsp;' . trans('label.edit'), ['class' => 'btn btn-primary btn-sm', 'type' => 'submit']) }}
+                                                {{ Form::button('<i class="fa fa-pencil"></i>', ['class' => 'btn btn-primary btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>
                                         <div class="form-group">
                                             {{ Form::open(['route' => ['manage-product.destroy', 'id' => $product->id], 'method' => 'DELETE']) }}
-                                                {{ Form::button('<i class="fa fa-trash-o"></i>&nbsp;' . trans('label.delete'), ['class' => 'btn btn-danger btn-sm', 'type' => 'submit']) }}
+                                                {{ Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>
                                     </div>

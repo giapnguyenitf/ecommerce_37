@@ -106,7 +106,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['route' => 'login', 'files' => true, 'enctype' => 'multipart/form-data', 'method' => 'POST', ]) }}
+                    {{ Form::open(['route' => 'add-product.importFile', 'files' => true, 'enctype' => 'multipart/form-data', 'method' => 'POST', ]) }}
                         <div class="form-group">
                             {{ Form::label('products', trans('label.choose_file')) }}
                             {{ Form::file('products') }}
