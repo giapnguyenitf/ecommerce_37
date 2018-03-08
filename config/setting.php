@@ -25,5 +25,6 @@
         'cod' => 1,
         'ebank' => 2,
         'get_top_ratings' => 4,
+        'get_top_search_product' => 3,
     ];
 ?>

@@ -116,12 +116,18 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="search-form">
-                                    <div class="input-group">
-                                        <input class="form-control" type="text" name="" id="">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-search"></i>
+                                    {{ Form::open(['route' => 'product.search', 'method' => 'GET', 'role' => 'search']) }}
+                                        <div class="input-group">
+                                            {{ Form::text('search', null, ['data-url' => route('product.liveSearch'),'class' => 'form-control', 'id' => 'search', 'placeholder' => trans('label.search'), 'cols' => 30 ]) }}
+                                            <span class="input-group-addon">
+                                                {{ Form::button('<i class="fa fa-search"></i>', ['type' => 'submit', 'id' => 'bt-search']) }}
+                                            </span>
                                         </div>
-                                    </div>
+                                    {{ Form::close() }}
+                                </div>
+                                <div class="live-search hidden">
+                                    <ul class="search-item">
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -268,6 +274,9 @@
         {{ Html::script('js/custom/main.js') }}
         {{ Html::script('js/custom/bxslider.min.js') }}
         {{ Html::script('js/custom/script.slider.js') }}
+        {{ Html::script('js/custom/ajax-setup.js') }}
+        {{ Html::script('messages.js') }}
+        {{ Html::script('js/custom/search.js') }}
         @yield('javascript')
     </body>
 </html>

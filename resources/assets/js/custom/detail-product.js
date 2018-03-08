@@ -86,9 +86,9 @@ $(document).ready(function () {
         var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
         var msg = "";
         if (ratingValue > 1) {
-            msg = Lang.get('label.you_rated_this') + ratingValue + Lang.get('label.stars');
+            msg = Lang.get('label.you_rated_this') + ' ' + ratingValue + ' ' + Lang.get('label.stars');
         } else {
-            msg = Lang.get('laebl.we_will_improve') + ratingValue + Lang.get('label.stars');
+            msg = Lang.get('label.we_will_improve') + ' ' + ratingValue + ' ' + Lang.get('label.stars');
         }
         responseMessage(msg);
     });

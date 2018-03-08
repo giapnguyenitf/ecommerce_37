@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="box-cart">
-                        <label for="">@lang('label.total'): <span></span></label>
+                        <label for="">@lang('label.total'): <span>{{ $total_money }}</span>&nbsp;@lang('label.vnd')</label>
                         <a href="{{ route('order-address.index') }}" class="btn btn-primary btn-block btn-sm">@lang('label.order')</a>
                     </div>
                 </div>
@@ -72,4 +72,3 @@
     {{ Html::script('js/custom/ajax-setup.js') }}
     {{ Html::script('js/custom/shopping-cart.js') }}
 @endsection
-

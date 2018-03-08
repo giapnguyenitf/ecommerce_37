@@ -81,12 +81,30 @@
                                     {{ Form::open(['route' => 'home', 'method' => 'POST']) }}
                                         <div class="rating-chooser">
                                             <p>@lang('label.your_rating')</p>
-                                            <div class="rating-wrap-post">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                            <div class='rating-stars'>
+                                                <ul id='stars'>
+                                                <li class='star' title='Poor' data-value='1'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Fair' data-value='2'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Good' data-value='3'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='Excellent' data-value='4'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                <li class='star' title='WOW!!!' data-value='5'>
+                                                    <i class='fa fa-star fa-fw'></i>
+                                                </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class='success-box'>
+                                                <div class='clearfix'></div>
+                                                <div class='text-message'></div>
+                                                <div class='clearfix'></div>
                                             </div>
                                         </div>
                                         <p>
@@ -94,7 +112,7 @@
                                             {{ Form::textarea('review', null, ['id' => 'review', 'cols' => 30, 'rows' => 10]) }}
                                         </p>
                                         <p>
-                                            {{ Form::button(trans('label.submit'), ['class' => 'btn btn-primary btn-review', 'id' => 'btn-review']) }}
+                                            {{ Form::button(trans('label.submit'), ['class' => 'btn btn-primary btn-review', 'id' => 'btn-review', 'data-url' => route('product.addReview')]) }}
                                         </p>
                                     {{ Form::close() }}
                                 </div>
@@ -206,6 +224,5 @@
     {{ Html::script('https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js') }}
     {{ Html::script('http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}
     {{ Html::script('js/custom/ajax-setup.js') }}
-    {{ Html::script('messages.js') }}
     {{ Html::script('js/custom/detail-product.js') }}
 @endsection

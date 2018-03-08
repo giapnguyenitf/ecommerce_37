@@ -36,4 +36,9 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     {
         return $this->model->whereIn('id', $array)->get();
     }
+
+    public function findByName($name)
+    {
+        return $this->model->where('name', 'like', '%' . $name . '%')->get();
+    }
 }
