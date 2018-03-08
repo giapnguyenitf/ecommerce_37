@@ -52,3 +52,14 @@
         {{ Session::get('add_color_product_fail') }}
     </div>
 @endif
+<!-- import list product -->
+@if (Session::has('import_product_success'))
+    <div class="alert alert-success">
+        {{ Session::get('import_product_success') }}
+    </div>
+@endif
+@if (Session::has('incorrect_file_format'))
+    <div class="alert alert-danger">
+        {{ Session::get('incorrect_file_format') }}
+    </div>
+@endif

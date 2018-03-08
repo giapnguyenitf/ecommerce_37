@@ -180,5 +180,8 @@
         'you_rated_this' => 'Thanks! You rated this',
         'stars' => 'stars',
         'we_will_improve' => 'We will improve ourselves. You rated this',
+        'export_products' => 'Export products',
+        'incorrect_file_format' => 'Incorrect file format',
+        'import_product_success' => 'Import product success',
     ];
 ?>

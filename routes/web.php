@@ -45,6 +45,8 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         'store',
     ]]);
     Route::get('add-product', 'AddProductsController@index')->name('add-product.index');
+    Route::post('add-product', 'AddProductsController@importListProduct')->name('add-product.importFile');
+    Route::get('export-product', 'AddProductsController@exportListProduct')->name('product.exportFile');
 });
 
 Route::namespace('Admin')->group(function () {
