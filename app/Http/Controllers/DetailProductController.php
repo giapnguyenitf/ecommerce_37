@@ -42,7 +42,7 @@ class DetailProductController extends Controller
 
         $ids_viewed = Session::get('recently_viewed');
         $recently_viewed_products = $this->productRepository->getRecentlyViewedProducts($ids_viewed);
-        $ratings = $this->ratingRepository->where('product_id', '=', $product->id)->with('user')->paginate(config('setting.get_top_ratings'));
+        $ratings = $this->ratingRepository->where('product_id', $product->id)->with('user')->paginate(config('setting.get_top_ratings'));
 
         return view('detailProduct', compact('product', 'recently_viewed_products', 'ratings'));
     }

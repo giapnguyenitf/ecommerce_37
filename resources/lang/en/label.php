@@ -183,5 +183,22 @@
         'export_products' => 'Export products',
         'incorrect_file_format' => 'Incorrect file format',
         'import_product_success' => 'Import product success',
+        'no-product-in-cart' => 'No product in cart',
+        'order_id' => 'Order id',
+        'order_date' => 'Order date',
+        'product' => 'Product',
+        'status' => 'Status',
+        'waiting_for_process' => 'Waiting for process',
+        'delivering' => 'Delivering',
+        'done' => 'Delivery success',
+        'cancel' => 'Order is cancelled',
+        'user_review' => 'User review',
+        'search' => 'Search',
+        'search_result' => 'Search result',
+        'empty_view_history' => 'Empty view history',
+        'edit_product' => 'Edit product',
+        'update_product' => 'Update Product',
+        'new_orders' => 'New orders',
+        'orders_in_process' => 'Orders in process'
     ];
 ?>
