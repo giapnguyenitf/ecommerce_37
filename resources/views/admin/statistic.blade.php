@@ -16,7 +16,7 @@
                 </div>
                 <a href="#">
                     <div class="panel-footer">
-                        <span class="pull-left"><a href="">@lang('label.view_details')</a></span>
+                        <span class="pull-left"><a href="{{ route('manage-user.index') }}">@lang('label.view_details')</a></span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                         <div class="clearfix"></div>
                     </div>
@@ -38,7 +38,7 @@
                 </div>
                 <a href="#">
                     <div class="panel-footer">
-                        <span class="pull-left"><a href="">@lang('label.view_details')</a></span>
+                        <span class="pull-left"><a href="{{ route('order-detail.newOrders') }}">@lang('label.view_details')</a></span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                         <div class="clearfix"></div>
                     </div>

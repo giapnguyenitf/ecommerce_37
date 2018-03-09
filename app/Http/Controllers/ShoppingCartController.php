@@ -6,11 +6,13 @@ use Auth;
 use Mail;
 use Session;
 use Response;
-use Exception;
+// use Exception;
+use App\Jobs\SendEmailOrder;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddCartRequest;
-use App\Repositories\Contracts\ProductRepositoryInterface;
+use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Contracts\OrderRepositoryInterface;
+use App\Repositories\Contracts\ProductRepositoryInterface;
 use App\Repositories\Contracts\OrderDetailRepositoryInterface;
 
 class ShoppingCartController extends Controller
@@ -18,15 +20,18 @@ class ShoppingCartController extends Controller
     protected $productRepository;
     protected $orderRepository;
     protected $orderDetailRepository;
+    protected $userRepository;
 
     public function __construct(
         ProductRepositoryInterface $productRepository,
         OrderRepositoryInterface $orderRepository,
-        OrderDetailRepositoryInterface $orderDetailRepository
+        OrderDetailRepositoryInterface $orderDetailRepository,
+        UserRepositoryInterface $userRepository
     ) {
         $this->productRepository = $productRepository;
         $this->orderRepository = $orderRepository;
         $this->orderDetailRepository = $orderDetailRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function show()
@@ -139,10 +144,9 @@ class ShoppingCartController extends Controller
                 Session::forget('shopping-cart');
             }
 
+            $user = $this->userRepository->findOrFail(Auth::user()->id);
             Session::flash('add_order_success', trans('label.add_order_success'));
-            Mail::send('admin.mailOrderSuccess', ['user_name' => Auth::user()->name, 'order' => $order, 'order_details' => $order_details], function ($message) {
-                $message->to(Auth::user()->email, trans('label.email.u-stora'))->subject(trans('label.mail.confirm_order'));
-            });
+            SendEmailOrder::dispatch($user, $order, $order_details);
         } catch(Exception $e) {
             Session::flash('add_order_fail', trans('label.add_order_fail'));
         }

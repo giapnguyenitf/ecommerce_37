@@ -14,32 +14,28 @@
                     <thead>
                         <tr>
                             <th>@lang('label.name')</th>
-                            <th>@lang('label.star_ratings')</th>
                             <th>@lang('label.number')</th>
                             <th>@lang('label.manufacturer')</th>
                             <th>@lang('label.sold')</th>
-                            <td>@lang('label.number_color')</td>
                             <th>@lang('label.options')</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($products as $product)
+                        @foreach ($colorProducts as $colorProduct)
                             <tr>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->star_rating }}</td>
-                                <td>{{ $product->colorProducts->sum('number') }}</td>
-                                <td>{{ $product->manufacturer }}</td>
-                                <td>{{ $product->colorProducts->sum('sold') }}</td>
-                                <td>{{ $product->colorProducts->count() }}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <div class="form-inline">
                                         <div class="form-group">
-                                            {{ Form::open(['route' => ['manage-product.show', 'id' => $product->id], 'method' => 'GET']) }}
+                                <td>{{ $colorProduct->star_rating }}</td>
+                                            {{ Form::open(['route' => ['manage-product.show', 'id' => $colorProduct->id], 'method' => 'GET']) }}
                                                 {{ Form::button('<i class="fa fa-pencil"></i>', ['class' => 'btn btn-primary btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::open(['route' => ['manage-product.destroy', 'id' => $product->id], 'method' => 'DELETE']) }}
+                                            {{ Form::open(['route' => ['manage-product.destroy', 'id' => $colorProduct->id], 'method' => 'DELETE']) }}
                                                 {{ Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>

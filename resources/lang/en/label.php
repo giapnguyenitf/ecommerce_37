@@ -222,5 +222,7 @@
         'add_user_fail' => 'Add user fail',
         'edit_user' => 'Edit user',
         'add_order_success' => 'Add order success',
+        'number_color' => 'Number color',
+        'add_order_fail' => 'Add order fail',
     ];
 ?>
