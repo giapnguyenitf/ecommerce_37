@@ -63,3 +63,14 @@
         {{ Session::get('incorrect_file_format') }}
     </div>
 @endif
+<!-- update order status to delivering -->
+@if (Session::has('order_status_changed'))
+    <div class="alert alert-success">
+        {{ Session::get('order_status_changed') }}
+    </div>
+@endif
+@if (Session::has('order_not_found'))
+    <div class="alert alert-danger">
+        {{ Session::get('order_not_found') }}
+    </div>
+@endif

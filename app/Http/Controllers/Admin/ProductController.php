@@ -129,11 +129,12 @@ class ProductController extends Controller
                 'price',
                 'brand_id',
             ]);
+
             if($request->has('thumbnail')) {
                 $thumbnail_path = $request->thumbnail->store(config('setting.folder_thumbnails'));
                 $data['thumbnail'] = explode('/', $thumbnail_path)[2];
             }
-
+            
             $data['discount'] = $request->discount/100;
             $product = $this->productRepository->update($id, $data);
             Session::flash('update_product_success', trans('label.update_product_success'));
@@ -156,7 +157,7 @@ class ProductController extends Controller
     {
         try
         {
-            $this->productRepository->delete($id);
+            $this->productRepository->destroy($id);
             Session::flash('label.delete_success');
         } catch (Exception $e) {
             Session::flash('label.delete_fail');

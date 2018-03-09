@@ -14,12 +14,12 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function findByField($field, $value)
     {
-        return $this->model->where($field, $value)->get()->first();
+        return $this->where($field, $value)->get()->first();
     }
 
     public function updatePassword($id, $password)
     {
-        $user = $this->model->find($id);
+        $user = $this->find($id);
         $user->password_hash = $password;
 
         return $user->save();

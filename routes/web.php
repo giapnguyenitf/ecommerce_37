@@ -42,6 +42,14 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('add-product', 'AddProductsController@index')->name('add-product.index');
     Route::post('add-product', 'AddProductsController@importListProduct')->name('add-product.importFile');
     Route::get('export-product', 'AddProductsController@exportListProduct')->name('product.exportFile');
+    Route::resource('manage-order', 'OrderController');
+    Route::get('order-detail/delivering/{id}', 'OrderDetailController@deliveringOrder')->name('order-detail.delivering');
+    Route::get('order-detail/done/{id}', 'OrderDetailController@doneOrder')->name('order-detail.done');
+    Route::get('order-detail/cancel/{id}', 'OrderDetailController@cancelOrder')->name('order-detail.cancel');
+    Route::get('list-order/delivering', 'OrderDetailController@showOrderDelivering')->name('order-detail.ordersDelivering');
+    Route::get('list-order/new', 'OrderDetailController@showNewOrder')->name('order-detail.newOrders');
+    Route::get('list-order/done', 'OrderDetailController@showDoneOrder')->name('order-detail.doneOrders');
+    Route::get('list-order/cancelled', 'OrderDetailController@showCancelledOrder')->name('order-detail.cancelledOrders');
 });
 
 Route::namespace('Admin')->group(function () {
@@ -74,6 +82,3 @@ Route::prefix('cart')->group(function () {
         'store',
     ]]);
 });
-
-
-

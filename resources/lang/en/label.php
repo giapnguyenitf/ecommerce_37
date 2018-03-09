@@ -199,6 +199,15 @@
         'edit_product' => 'Edit product',
         'update_product' => 'Update Product',
         'new_orders' => 'New orders',
-        'orders_in_process' => 'Orders in process'
+        'orders_in_process' => 'Orders in process',
+        'user_name' => 'User name',
+        'accept_order' => 'Accept order',
+        'cancel_order' => 'Cancel order',
+        'order_not_found' => 'Order not found',
+        'order_status_change_to_delivering' => 'Order status change to delivering',
+        'orders_is_delivering' => 'Orders is delivering',
+        'orders_done' => 'Orders done',
+        'orders_cancelled' => 'Orders cancelled',
+        'order_status_changed' => 'Order status changed'
     ];
 ?>

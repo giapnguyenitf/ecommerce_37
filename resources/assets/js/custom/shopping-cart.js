@@ -32,7 +32,7 @@ $(document).ready(function () {
                 quantity: quantity,
             },
             success: function (data) {
-                $('.cart_total_price').text(last_price * quantity);
+                location.reload();
             },
             error: function (data) {
 

@@ -26,5 +26,8 @@
         'ebank' => 2,
         'get_top_ratings' => 4,
         'get_top_search_product' => 3,
+        'thumbnails_path' => 'public/thumbnails/',
+        'get_top_new_product' => 3,
+        'get_top_seller_product' => 3,
     ];
 ?>

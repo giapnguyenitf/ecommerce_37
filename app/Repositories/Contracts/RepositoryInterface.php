@@ -13,7 +13,7 @@ interface RepositoryInterface
 
     public function update($id, array $attributes);
 
-    public function delete($id);
+    public function destroy($id);
 
     public function findByField($field, $value);
 
@@ -33,6 +33,8 @@ interface RepositoryInterface
 
     public function createByRelationship($method, $inputs, $option = false);
 
-    public function whereIn($olumn, $values);
+    public function whereIn($column, $values);
+
+    public function delete();
 
 }

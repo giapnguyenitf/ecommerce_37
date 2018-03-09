@@ -32,7 +32,7 @@
                                 <td>
                                     <div class="form-inline">
                                         <div class="form-group">
-                                            {{ Form::open(['route' => ['manage-product.edit', 'id' => $product->id], 'method' => 'GET']) }}
+                                            {{ Form::open(['route' => ['manage-product.show', 'id' => $product->id], 'method' => 'GET']) }}
                                                 {{ Form::button('<i class="fa fa-pencil"></i>', ['class' => 'btn btn-primary btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>

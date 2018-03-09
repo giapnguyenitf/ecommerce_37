@@ -24,5 +24,4 @@ class ColorProductRepository extends BaseRepository implements ColorProductRepos
     {
         return $this->model->where('id', $id)->with('images')->get()->first();
     }
-
 }

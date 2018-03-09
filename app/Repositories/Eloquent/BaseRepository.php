@@ -59,9 +59,11 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->model->where('id', $id)->update($attributes);
     }
 
-    public function delete($id)
+    public function destroy($ids)
     {
-        return $this->model->destroy($id);
+        $ids = is_array($ids) ? $ids : [$ids];
+
+        return $this->model->destroy($ids);
     }
 
     public function findByField($field, $value)
@@ -160,5 +162,10 @@ abstract class BaseRepository implements RepositoryInterface
         $this->model = $this->model->whereIn($column, $values);
 
         return $this;
+    }
+
+    public function delete()
+    {
+        return $this->model->delete();
     }
 }
