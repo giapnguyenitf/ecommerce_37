@@ -204,5 +204,10 @@
         'new_order' => 'New order',
         'ratings' => 'Ratings',
         'users' => 'Users',
+        'orders_delivering' => 'Orders delivering',
+        'orders_done' => 'Orders done',
+        'orders_cancelled' => 'Orders cancelled',
+        'user_name' => 'User name',
+        'order_status_changed' => 'Order status changed',
     ];
 ?>

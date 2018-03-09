@@ -44,6 +44,13 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('export-product', 'AddProductsController@exportListProduct')->name('product.exportFile');
     Route::get('dashboard-statistic', 'StatisticController@index')->name('admin.statistic');
     Route::get('dashboard-statistic/chart', 'StatisticController@statisticOrder')->name('order.getStatistic');
+    Route::get('order-detail/delivering/{id}', 'OrderDetailController@deliveringOrder')->name('order-detail.delivering');
+    Route::get('order-detail/done/{id}', 'OrderDetailController@doneOrder')->name('order-detail.done');
+    Route::get('order-detail/cancel/{id}', 'OrderDetailController@cancelOrder')->name('order-detail.cancel');
+    Route::get('list-order/delivering', 'OrderDetailController@showOrderDelivering')->name('order-detail.ordersDelivering');
+    Route::get('list-order/new', 'OrderDetailController@showNewOrder')->name('order-detail.newOrders');
+    Route::get('list-order/done', 'OrderDetailController@showDoneOrder')->name('order-detail.doneOrders');
+    Route::get('list-order/cancel', 'OrderDetailController@showCancelledOrder')->name('order-detail.cancelOrders');
 });
 
 Route::namespace('Admin')->group(function () {
