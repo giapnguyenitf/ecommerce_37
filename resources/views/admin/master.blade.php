@@ -105,13 +105,7 @@
                     <nav>
                         <ul class="nav">
                             <li>
-                                <a href="" class=""><i class="lnr lnr-home"></i><span>@lang('label.dashboard')</span></a>
-                            </li>
-                            <li>
-                                <a href="" class=""><i class="fa fa-file"></i><span>@lang('label.new_orders')</span></a>
-                            </li>
-                            <li>
-                                <a href="" class=""><i class="fa fa-file"></i><span>@lang('label.orders_in_process')</span></a>
+                                <a href="{{ route('admin.statistic') }}" class=""><i class="lnr lnr-home"></i><span>@lang('label.dashboard')</span></a>
                             </li>
                             <li>
                                 <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i><span>@lang('label.products')</span>&nbsp;<i class="fa fa-chevron-right"></i></a>
