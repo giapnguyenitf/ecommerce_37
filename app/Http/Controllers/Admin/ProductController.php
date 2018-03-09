@@ -108,7 +108,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -156,7 +156,7 @@ class ProductController extends Controller
     {
         try
         {
-            $this->productRepository->delete($id);
+            $this->productRepository->destroy($id);
             Session::flash('label.delete_success');
         } catch (Exception $e) {
             Session::flash('label.delete_fail');

@@ -1,4 +1,4 @@
-<h1>@lang('label.mail.hi')&nbsp;{{ $user_name }}</h1>
+<h1>@lang('label.mail.hi')&nbsp;{{ $user->name }}</h1>
 <div class="notifications">
     <p>@lang('label.mail.order_success')</p>
 </div>

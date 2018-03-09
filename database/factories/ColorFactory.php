@@ -1,8 +1,6 @@
 <?php
 
-use Faker\Generator as Faker;
-
-$factory->define(App\Models\Color::class, function (Faker $faker) {
+$factory->define(App\Models\Color::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->colorName,
     ];

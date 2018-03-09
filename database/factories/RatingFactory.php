@@ -1,8 +1,6 @@
 <?php
 
-use Faker\Generator as Faker;
-
-$factory->define(App\Models\Rating::class, function (Faker $faker) {
+$factory->define(App\Models\Rating::class, function (Faker\Generator $faker) {
     return [
         'user_id' => App\Models\User::get()->random()->id,
         'product_id' => App\Models\Product::get()->random()->id,

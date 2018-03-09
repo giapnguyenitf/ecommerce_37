@@ -1,8 +1,6 @@
 <?php
 
-use Faker\Generator as Faker;
-
-$factory->define(App\Models\Product::class, function (Faker $faker) {
+$factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
     return [
         'category_id' => App\Models\Category::get()->random()->id,
         'name' => $faker->name,
@@ -11,6 +9,6 @@ $factory->define(App\Models\Product::class, function (Faker $faker) {
         'discount' => $faker->randomFloat(2, 0, 1.0),
         'star_rating' => $faker->numberBetween(1, 5),
         'status' => $faker->randomElement(array(true, false)),
-        'manufacturer' => $faker->name,
+        'brand' => App\Models\Brand::get()->random()->id,
     ];
 });

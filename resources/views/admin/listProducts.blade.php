@@ -18,6 +18,7 @@
                             <th>@lang('label.number')</th>
                             <th>@lang('label.manufacturer')</th>
                             <th>@lang('label.sold')</th>
+                            <td>@lang('label.number_color')</td>
                             <th>@lang('label.options')</th>
                         </tr>
                     </thead>
@@ -29,10 +30,11 @@
                                 <td>{{ $product->colorProducts->sum('number') }}</td>
                                 <td>{{ $product->manufacturer }}</td>
                                 <td>{{ $product->colorProducts->sum('sold') }}</td>
+                                <td>{{ $product->colorProducts->count() }}</td>
                                 <td>
                                     <div class="form-inline">
                                         <div class="form-group">
-                                            {{ Form::open(['route' => ['manage-product.edit', 'id' => $product->id], 'method' => 'GET']) }}
+                                            {{ Form::open(['route' => ['manage-product.show', 'id' => $product->id], 'method' => 'GET']) }}
                                                 {{ Form::button('<i class="fa fa-pencil"></i>', ['class' => 'btn btn-primary btn-sm', 'type' => 'submit']) }}
                                             {{ Form::close() }}
                                         </div>

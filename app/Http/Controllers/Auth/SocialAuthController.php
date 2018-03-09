@@ -7,13 +7,13 @@ use Socialite;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Contracts\UserRepositoryInterface;
 
 class SocialAuthController extends Controller
 {
     protected $userRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepositoryInterface $userRepository)
     {
         $this->userRepository = $userRepository;
     }
@@ -30,7 +30,7 @@ class SocialAuthController extends Controller
             $user = Socialite::driver($provider)->user();
             $authUser = $this->findOrCreateUser($user, $provider);
             Auth::login($authUser, true);
-            
+
             return redirect()->route('home');
         } catch(Exception $e) {
             return back();
@@ -43,7 +43,7 @@ class SocialAuthController extends Controller
         if ($authUser) {
             return $authUser;
         }
-       
+
         return $this->userRepository->create([
             'name' => $user->name,
             'provider' => $provider,
