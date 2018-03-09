@@ -116,7 +116,7 @@ class ShoppingCartController extends Controller
             Session::forget('shopping-cart.' . $data['session_id']);
             Session::push('shopping-cart', $cart);
             $new_session_id = Session::get('shopping-cart');
-            
+
             return Response::json([
                 'status' => 200,
             ]);

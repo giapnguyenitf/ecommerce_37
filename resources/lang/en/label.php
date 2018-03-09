@@ -209,5 +209,18 @@
         'orders_cancelled' => 'Orders cancelled',
         'user_name' => 'User name',
         'order_status_changed' => 'Order status changed',
+        'list_users' => 'List users',
+        'user_id' => 'User id',
+        'user_name' => 'User name',
+        'created_at' => 'Creted at',
+        'add_new_user' => 'Add new user',
+        'delete_user_fail' => 'Delete user fail',
+        'delete_user_success' => 'Delete user success',
+        'create_user' => 'Create user',
+        'is_admin' => 'Is admin',
+        'add_user_success' => 'Add user success',
+        'add_user_fail' => 'Add user fail',
+        'edit_user' => 'Edit user',
+        'add_order_success' => 'Add order success',
     ];
 ?>

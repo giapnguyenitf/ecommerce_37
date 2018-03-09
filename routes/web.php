@@ -51,6 +51,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('list-order/new', 'OrderDetailController@showNewOrder')->name('order-detail.newOrders');
     Route::get('list-order/done', 'OrderDetailController@showDoneOrder')->name('order-detail.doneOrders');
     Route::get('list-order/cancel', 'OrderDetailController@showCancelledOrder')->name('order-detail.cancelOrders');
+    Route::resource('manage-user', 'UserController');
 });
 
 Route::namespace('Admin')->group(function () {

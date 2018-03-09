@@ -4,6 +4,7 @@
         <div class="row profile-section">
             @include('user.sidebar')
             <div class="col-md-9">
+                @include('layouts.notifications')
                 <table class="table table-condensed">
                     <thead>
                         <tr class="cart_menu">
