@@ -69,3 +69,31 @@
         {{ Session::get('order_status_changed') }}
     </div>
 @endif
+<!-- delete user -->
+@if (Session::has('delete_user_success'))
+    <div class="alert alert-success">
+        {{ Session::get('delete_user_success') }}
+    </div>
+@endif
+@if (Session::has('delete_user_fail'))
+    <div class="alert alert-danger">
+        {{ Session::get('delete_user_fail') }}
+    </div>
+@endif
+<!-- add new user -->
+@if (Session::has('add_user_success'))
+    <div class="alert alert-success">
+        {{ Session::get('add_user_success') }}
+    </div>
+@endif
+<!-- add order -->
+@if (Session::has('add_order_success'))
+    <div class="alert alert-success">
+        {{ Session::get('add_order_success') }}
+    </div>
+@endif
+@if (Session::has('add_order_fail'))
+    <div class="alert alert-danger">
+        {{ Session::get('add_order_fail') }}
+    </div>
+@endif

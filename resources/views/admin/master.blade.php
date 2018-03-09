@@ -121,6 +121,9 @@
                             </li>
                             <li>
                             <li>
+                                <a href="{{ route('manage-user.index') }}" class=""><span class="lnr lnr-users"></span><span>&nbsp;@lang('label.list_users')</span></a>
+                            </li>
+                            <li>
                                 <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i><span>@lang('label.products')</span>&nbsp;<i class="fa fa-chevron-right"></i></a>
                                 <div id="subPages" class="collapse ">
                                     <ul class="nav">

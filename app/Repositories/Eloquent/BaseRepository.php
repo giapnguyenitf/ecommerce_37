@@ -3,6 +3,7 @@ namespace App\Repositories\Eloquent;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Container\Container;
 use App\Repositories\Contracts\RepositoryInterface;
 
@@ -59,7 +60,7 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->model->where('id', $id)->update($attributes);
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         return $this->model->destroy($id);
     }
@@ -160,5 +161,10 @@ abstract class BaseRepository implements RepositoryInterface
         $this->model = $this->model->whereIn($column, $values);
 
         return $this;
+    }
+
+    public function delete()
+    {
+        return $this->model->delete();
     }
 }
