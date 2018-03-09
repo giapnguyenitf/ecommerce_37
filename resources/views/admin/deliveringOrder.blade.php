@@ -26,38 +26,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($newOrders as $newOrder)
+                        @foreach ($ordersDelivering as $orderDelivering)
                             <tr>
-                                <td>{{ $newOrder->id }}</td>
-                                <td>{{ $newOrder->order->user->name }}</td>
-                                <td>{{ $newOrder->product->name }}</td>
-                                <td>{{ $newOrder->color->name }}</td>
-                                <td>{{ $newOrder->quantity }}</td>
-                                <td>{{ $newOrder->created_at->format('m/d/Y') }}</td>
-                                <td>{{ $newOrder->total_money }}</td>
+                                <td>{{ $orderDelivering->id }}</td>
+                                <td>{{ $orderDelivering->order->user->name }}</td>
+                                <td>{{ $orderDelivering->product->name }}</td>
+                                <td>{{ $orderDelivering->color->name }}</td>
+                                <td>{{ $orderDelivering->quantity }}</td>
+                                <td>{{ $orderDelivering->created_at->format('m/d/Y') }}</td>
+                                <td>{{ $orderDelivering->total_money }}</td>
                                 <td>
-                                    @switch ($newOrder->status)
-                                        @case (config('setting.waiting_for_process'))
-                                            <span class="label label-primary">{{ $newOrder->status_detail }}</span>
-                                            @break
-                                        @case (config('setting.delivering'))
-                                            <span class="label label-info">{{ $newOrder->status_detail }}</span>
-                                            @break
-                                        @case (config('setting.done'))
-                                            <span class="label label-success">{{ $newOrder->status_detail }}</span>
-                                            @break
-                                        @case (config('setting.cancel'))
-                                            <span class="label label-danger">{{ $newOrder->status_detail }}</span>
-                                            @break
-                                    @endswitch
+                                    <span class="label label-info">{{ $orderDelivering->status_detail }}</span>
                                 </td>
                                 <td>
                                     <div class="form-inline">
                                         <div class="form-group">
-                                            <a class="btn btn-success btn-sm" href="{{ route('order-detail.delivering', $newOrder->id) }}"><span class="lnr lnr-car"></span></a>
+                                            <a class="btn btn-success btn-sm" href="{{ route('order-detail.done', $orderDelivering->id) }}"><i class="fa fa-check-circle"></i></a>
                                         </div>
                                         <div class="form-group">
-                                            <a class="btn btn-warning btn-sm" href="{{ route('order-detail.cancel', $newOrder->id) }}"><i class="fa fa-times-circle"></i></a>
+                                            <a class="btn btn-warning btn-sm" href="{{ route('order-detail.cancel', $orderDelivering->id) }}"><i class="fa fa-times-circle"></i></a>
                                         </div>
                                     </div>
                                 </td>
