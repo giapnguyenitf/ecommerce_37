@@ -38,7 +38,7 @@
                                             <a class="dropdown dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @lang('label.my_account')&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></a>
                                             <ul class="dropdown-menu">
                                                 @if (Auth::user()->is_admin)
-                                                    <li class="dropdown-item"><a href="{{ route('manage-product.index') }}"><i class="fa fa-university"></i> @lang('label.dashboard')</a></li>
+                                                    <li class="dropdown-item"><a href="{{ route('admin.statistic') }}"><i class="fa fa-university"></i> @lang('label.dashboard')</a></li>
                                                 @endif
                                                 <li class="dropdown-item">
                                                     <a href="{{ route('profile.index') }}"><i class="fa fa-user"></i> @lang('label.manage_account')</a>

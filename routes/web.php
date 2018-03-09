@@ -42,6 +42,8 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('add-product', 'AddProductsController@index')->name('add-product.index');
     Route::post('add-product', 'AddProductsController@importListProduct')->name('add-product.importFile');
     Route::get('export-product', 'AddProductsController@exportListProduct')->name('product.exportFile');
+    Route::get('dashboard-statistic', 'StatisticController@index')->name('admin.statistic');
+    Route::get('dashboard-statistic/chart', 'StatisticController@statisticOrder')->name('order.getStatistic');
 });
 
 Route::namespace('Admin')->group(function () {

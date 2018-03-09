@@ -199,6 +199,10 @@
         'edit_product' => 'Edit product',
         'update_product' => 'Update Product',
         'new_orders' => 'New orders',
-        'orders_in_process' => 'Orders in process'
+        'orders_in_process' => 'Orders in process',
+        'view_details' => 'View details',
+        'new_order' => 'New order',
+        'ratings' => 'Ratings',
+        'users' => 'Users',
     ];
 ?>
